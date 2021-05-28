@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/xsan/simple-chess/Test.cpp
+iostream
+-
+Test.h
+/home/xsan/simple-chess/Test.h
+
+/home/xsan/simple-chess/Test.h
+
+/home/xsan/simple-chess/main.cpp
+SFML/Graphics.hpp
+-
+time.h
+-
+iostream
+-
+Test.h
+/home/xsan/simple-chess/Test.h
+
