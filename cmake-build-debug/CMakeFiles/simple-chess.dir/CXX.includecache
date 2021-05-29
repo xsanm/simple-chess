@@ -6,21 +6,25 @@
 
 #IncludeRegexTransform: 
 
-/home/xsan/simple-chess/Test.cpp
-iostream
--
-Test.h
-/home/xsan/simple-chess/Test.h
+/home/xsan/simple-chess/src/BoardVector.h
 
-/home/xsan/simple-chess/Test.h
+/home/xsan/simple-chess/src/ChessPiece.h
+Data.h
+/home/xsan/simple-chess/src/Data.h
+BoardVector.h
+/home/xsan/simple-chess/src/BoardVector.h
 
-/home/xsan/simple-chess/main.cpp
+/home/xsan/simple-chess/src/Data.h
 SFML/Graphics.hpp
 -
-time.h
--
-iostream
--
-Test.h
-/home/xsan/simple-chess/Test.h
+
+/home/xsan/simple-chess/src/Pieces/Pawn.cpp
+Pawn.h
+/home/xsan/simple-chess/src/Pieces/Pawn.h
+
+/home/xsan/simple-chess/src/Pieces/Pawn.h
+../Data.h
+/home/xsan/simple-chess/src/Data.h
+../ChessPiece.h
+/home/xsan/simple-chess/src/ChessPiece.h
 

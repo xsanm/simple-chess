@@ -84,13 +84,70 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/xsan/simple-chess/Test.cpp">
-			<Option target="simple-chess"/>
-		</Unit>
-		<Unit filename="/home/xsan/simple-chess/Test.h">
-			<Option target="simple-chess"/>
-		</Unit>
 		<Unit filename="/home/xsan/simple-chess/main.cpp">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/Board.cpp">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/Board.h">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/BoardVector.cpp">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/BoardVector.h">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/ChessPiece.cpp">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/ChessPiece.h">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/Data.h">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/GameEngine.cpp">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/GameEngine.h">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/Pieces/Bishop.cpp">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/Pieces/Bishop.h">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/Pieces/King.cpp">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/Pieces/King.h">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/Pieces/Knight.cpp">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/Pieces/Knight.h">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/Pieces/Pawn.cpp">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/Pieces/Pawn.h">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/Pieces/Queen.cpp">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/Pieces/Queen.h">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/Pieces/Rook.cpp">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/Pieces/Rook.h">
 			<Option target="simple-chess"/>
 		</Unit>
 		<Unit filename="/home/xsan/simple-chess/CMakeLists.txt">

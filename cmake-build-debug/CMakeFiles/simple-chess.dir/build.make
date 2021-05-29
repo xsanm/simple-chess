@@ -89,29 +89,164 @@ CMakeFiles/simple-chess.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simple-chess.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xsan/simple-chess/main.cpp -o CMakeFiles/simple-chess.dir/main.cpp.s
 
-CMakeFiles/simple-chess.dir/Test.cpp.o: CMakeFiles/simple-chess.dir/flags.make
-CMakeFiles/simple-chess.dir/Test.cpp.o: ../Test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xsan/simple-chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/simple-chess.dir/Test.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/simple-chess.dir/Test.cpp.o -c /home/xsan/simple-chess/Test.cpp
+CMakeFiles/simple-chess.dir/src/GameEngine.cpp.o: CMakeFiles/simple-chess.dir/flags.make
+CMakeFiles/simple-chess.dir/src/GameEngine.cpp.o: ../src/GameEngine.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xsan/simple-chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/simple-chess.dir/src/GameEngine.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/simple-chess.dir/src/GameEngine.cpp.o -c /home/xsan/simple-chess/src/GameEngine.cpp
 
-CMakeFiles/simple-chess.dir/Test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simple-chess.dir/Test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xsan/simple-chess/Test.cpp > CMakeFiles/simple-chess.dir/Test.cpp.i
+CMakeFiles/simple-chess.dir/src/GameEngine.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simple-chess.dir/src/GameEngine.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xsan/simple-chess/src/GameEngine.cpp > CMakeFiles/simple-chess.dir/src/GameEngine.cpp.i
 
-CMakeFiles/simple-chess.dir/Test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simple-chess.dir/Test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xsan/simple-chess/Test.cpp -o CMakeFiles/simple-chess.dir/Test.cpp.s
+CMakeFiles/simple-chess.dir/src/GameEngine.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simple-chess.dir/src/GameEngine.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xsan/simple-chess/src/GameEngine.cpp -o CMakeFiles/simple-chess.dir/src/GameEngine.cpp.s
+
+CMakeFiles/simple-chess.dir/src/ChessPiece.cpp.o: CMakeFiles/simple-chess.dir/flags.make
+CMakeFiles/simple-chess.dir/src/ChessPiece.cpp.o: ../src/ChessPiece.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xsan/simple-chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/simple-chess.dir/src/ChessPiece.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/simple-chess.dir/src/ChessPiece.cpp.o -c /home/xsan/simple-chess/src/ChessPiece.cpp
+
+CMakeFiles/simple-chess.dir/src/ChessPiece.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simple-chess.dir/src/ChessPiece.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xsan/simple-chess/src/ChessPiece.cpp > CMakeFiles/simple-chess.dir/src/ChessPiece.cpp.i
+
+CMakeFiles/simple-chess.dir/src/ChessPiece.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simple-chess.dir/src/ChessPiece.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xsan/simple-chess/src/ChessPiece.cpp -o CMakeFiles/simple-chess.dir/src/ChessPiece.cpp.s
+
+CMakeFiles/simple-chess.dir/src/BoardVector.cpp.o: CMakeFiles/simple-chess.dir/flags.make
+CMakeFiles/simple-chess.dir/src/BoardVector.cpp.o: ../src/BoardVector.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xsan/simple-chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/simple-chess.dir/src/BoardVector.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/simple-chess.dir/src/BoardVector.cpp.o -c /home/xsan/simple-chess/src/BoardVector.cpp
+
+CMakeFiles/simple-chess.dir/src/BoardVector.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simple-chess.dir/src/BoardVector.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xsan/simple-chess/src/BoardVector.cpp > CMakeFiles/simple-chess.dir/src/BoardVector.cpp.i
+
+CMakeFiles/simple-chess.dir/src/BoardVector.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simple-chess.dir/src/BoardVector.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xsan/simple-chess/src/BoardVector.cpp -o CMakeFiles/simple-chess.dir/src/BoardVector.cpp.s
+
+CMakeFiles/simple-chess.dir/src/Board.cpp.o: CMakeFiles/simple-chess.dir/flags.make
+CMakeFiles/simple-chess.dir/src/Board.cpp.o: ../src/Board.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xsan/simple-chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/simple-chess.dir/src/Board.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/simple-chess.dir/src/Board.cpp.o -c /home/xsan/simple-chess/src/Board.cpp
+
+CMakeFiles/simple-chess.dir/src/Board.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simple-chess.dir/src/Board.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xsan/simple-chess/src/Board.cpp > CMakeFiles/simple-chess.dir/src/Board.cpp.i
+
+CMakeFiles/simple-chess.dir/src/Board.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simple-chess.dir/src/Board.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xsan/simple-chess/src/Board.cpp -o CMakeFiles/simple-chess.dir/src/Board.cpp.s
+
+CMakeFiles/simple-chess.dir/src/Pieces/Pawn.cpp.o: CMakeFiles/simple-chess.dir/flags.make
+CMakeFiles/simple-chess.dir/src/Pieces/Pawn.cpp.o: ../src/Pieces/Pawn.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xsan/simple-chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/simple-chess.dir/src/Pieces/Pawn.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/simple-chess.dir/src/Pieces/Pawn.cpp.o -c /home/xsan/simple-chess/src/Pieces/Pawn.cpp
+
+CMakeFiles/simple-chess.dir/src/Pieces/Pawn.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simple-chess.dir/src/Pieces/Pawn.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xsan/simple-chess/src/Pieces/Pawn.cpp > CMakeFiles/simple-chess.dir/src/Pieces/Pawn.cpp.i
+
+CMakeFiles/simple-chess.dir/src/Pieces/Pawn.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simple-chess.dir/src/Pieces/Pawn.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xsan/simple-chess/src/Pieces/Pawn.cpp -o CMakeFiles/simple-chess.dir/src/Pieces/Pawn.cpp.s
+
+CMakeFiles/simple-chess.dir/src/Pieces/Knight.cpp.o: CMakeFiles/simple-chess.dir/flags.make
+CMakeFiles/simple-chess.dir/src/Pieces/Knight.cpp.o: ../src/Pieces/Knight.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xsan/simple-chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/simple-chess.dir/src/Pieces/Knight.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/simple-chess.dir/src/Pieces/Knight.cpp.o -c /home/xsan/simple-chess/src/Pieces/Knight.cpp
+
+CMakeFiles/simple-chess.dir/src/Pieces/Knight.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simple-chess.dir/src/Pieces/Knight.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xsan/simple-chess/src/Pieces/Knight.cpp > CMakeFiles/simple-chess.dir/src/Pieces/Knight.cpp.i
+
+CMakeFiles/simple-chess.dir/src/Pieces/Knight.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simple-chess.dir/src/Pieces/Knight.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xsan/simple-chess/src/Pieces/Knight.cpp -o CMakeFiles/simple-chess.dir/src/Pieces/Knight.cpp.s
+
+CMakeFiles/simple-chess.dir/src/Pieces/Queen.cpp.o: CMakeFiles/simple-chess.dir/flags.make
+CMakeFiles/simple-chess.dir/src/Pieces/Queen.cpp.o: ../src/Pieces/Queen.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xsan/simple-chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/simple-chess.dir/src/Pieces/Queen.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/simple-chess.dir/src/Pieces/Queen.cpp.o -c /home/xsan/simple-chess/src/Pieces/Queen.cpp
+
+CMakeFiles/simple-chess.dir/src/Pieces/Queen.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simple-chess.dir/src/Pieces/Queen.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xsan/simple-chess/src/Pieces/Queen.cpp > CMakeFiles/simple-chess.dir/src/Pieces/Queen.cpp.i
+
+CMakeFiles/simple-chess.dir/src/Pieces/Queen.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simple-chess.dir/src/Pieces/Queen.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xsan/simple-chess/src/Pieces/Queen.cpp -o CMakeFiles/simple-chess.dir/src/Pieces/Queen.cpp.s
+
+CMakeFiles/simple-chess.dir/src/Pieces/Bishop.cpp.o: CMakeFiles/simple-chess.dir/flags.make
+CMakeFiles/simple-chess.dir/src/Pieces/Bishop.cpp.o: ../src/Pieces/Bishop.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xsan/simple-chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/simple-chess.dir/src/Pieces/Bishop.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/simple-chess.dir/src/Pieces/Bishop.cpp.o -c /home/xsan/simple-chess/src/Pieces/Bishop.cpp
+
+CMakeFiles/simple-chess.dir/src/Pieces/Bishop.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simple-chess.dir/src/Pieces/Bishop.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xsan/simple-chess/src/Pieces/Bishop.cpp > CMakeFiles/simple-chess.dir/src/Pieces/Bishop.cpp.i
+
+CMakeFiles/simple-chess.dir/src/Pieces/Bishop.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simple-chess.dir/src/Pieces/Bishop.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xsan/simple-chess/src/Pieces/Bishop.cpp -o CMakeFiles/simple-chess.dir/src/Pieces/Bishop.cpp.s
+
+CMakeFiles/simple-chess.dir/src/Pieces/Rook.cpp.o: CMakeFiles/simple-chess.dir/flags.make
+CMakeFiles/simple-chess.dir/src/Pieces/Rook.cpp.o: ../src/Pieces/Rook.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xsan/simple-chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/simple-chess.dir/src/Pieces/Rook.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/simple-chess.dir/src/Pieces/Rook.cpp.o -c /home/xsan/simple-chess/src/Pieces/Rook.cpp
+
+CMakeFiles/simple-chess.dir/src/Pieces/Rook.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simple-chess.dir/src/Pieces/Rook.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xsan/simple-chess/src/Pieces/Rook.cpp > CMakeFiles/simple-chess.dir/src/Pieces/Rook.cpp.i
+
+CMakeFiles/simple-chess.dir/src/Pieces/Rook.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simple-chess.dir/src/Pieces/Rook.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xsan/simple-chess/src/Pieces/Rook.cpp -o CMakeFiles/simple-chess.dir/src/Pieces/Rook.cpp.s
+
+CMakeFiles/simple-chess.dir/src/Pieces/King.cpp.o: CMakeFiles/simple-chess.dir/flags.make
+CMakeFiles/simple-chess.dir/src/Pieces/King.cpp.o: ../src/Pieces/King.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xsan/simple-chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/simple-chess.dir/src/Pieces/King.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/simple-chess.dir/src/Pieces/King.cpp.o -c /home/xsan/simple-chess/src/Pieces/King.cpp
+
+CMakeFiles/simple-chess.dir/src/Pieces/King.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simple-chess.dir/src/Pieces/King.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xsan/simple-chess/src/Pieces/King.cpp > CMakeFiles/simple-chess.dir/src/Pieces/King.cpp.i
+
+CMakeFiles/simple-chess.dir/src/Pieces/King.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simple-chess.dir/src/Pieces/King.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xsan/simple-chess/src/Pieces/King.cpp -o CMakeFiles/simple-chess.dir/src/Pieces/King.cpp.s
 
 # Object files for target simple-chess
 simple__chess_OBJECTS = \
 "CMakeFiles/simple-chess.dir/main.cpp.o" \
-"CMakeFiles/simple-chess.dir/Test.cpp.o"
+"CMakeFiles/simple-chess.dir/src/GameEngine.cpp.o" \
+"CMakeFiles/simple-chess.dir/src/ChessPiece.cpp.o" \
+"CMakeFiles/simple-chess.dir/src/BoardVector.cpp.o" \
+"CMakeFiles/simple-chess.dir/src/Board.cpp.o" \
+"CMakeFiles/simple-chess.dir/src/Pieces/Pawn.cpp.o" \
+"CMakeFiles/simple-chess.dir/src/Pieces/Knight.cpp.o" \
+"CMakeFiles/simple-chess.dir/src/Pieces/Queen.cpp.o" \
+"CMakeFiles/simple-chess.dir/src/Pieces/Bishop.cpp.o" \
+"CMakeFiles/simple-chess.dir/src/Pieces/Rook.cpp.o" \
+"CMakeFiles/simple-chess.dir/src/Pieces/King.cpp.o"
 
 # External object files for target simple-chess
 simple__chess_EXTERNAL_OBJECTS =
 
 simple-chess: CMakeFiles/simple-chess.dir/main.cpp.o
-simple-chess: CMakeFiles/simple-chess.dir/Test.cpp.o
+simple-chess: CMakeFiles/simple-chess.dir/src/GameEngine.cpp.o
+simple-chess: CMakeFiles/simple-chess.dir/src/ChessPiece.cpp.o
+simple-chess: CMakeFiles/simple-chess.dir/src/BoardVector.cpp.o
+simple-chess: CMakeFiles/simple-chess.dir/src/Board.cpp.o
+simple-chess: CMakeFiles/simple-chess.dir/src/Pieces/Pawn.cpp.o
+simple-chess: CMakeFiles/simple-chess.dir/src/Pieces/Knight.cpp.o
+simple-chess: CMakeFiles/simple-chess.dir/src/Pieces/Queen.cpp.o
+simple-chess: CMakeFiles/simple-chess.dir/src/Pieces/Bishop.cpp.o
+simple-chess: CMakeFiles/simple-chess.dir/src/Pieces/Rook.cpp.o
+simple-chess: CMakeFiles/simple-chess.dir/src/Pieces/King.cpp.o
 simple-chess: CMakeFiles/simple-chess.dir/build.make
 simple-chess: /usr/lib/x86_64-linux-gnu/libsfml-audio.so.2.5.1
 simple-chess: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
@@ -119,7 +254,7 @@ simple-chess: /usr/lib/x86_64-linux-gnu/libsfml-network.so.2.5.1
 simple-chess: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1
 simple-chess: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
 simple-chess: CMakeFiles/simple-chess.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/xsan/simple-chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable simple-chess"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/xsan/simple-chess/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable simple-chess"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/simple-chess.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
