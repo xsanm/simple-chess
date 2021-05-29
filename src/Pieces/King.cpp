@@ -3,3 +3,11 @@
 //
 
 #include "King.h"
+
+bool King::isPossibleToMove() {
+    return false;
+}
+
+King::King(BoardVector position, Color color, std::string textureUrl) : ChessPiece(position, color, textureUrl) {
+
+}

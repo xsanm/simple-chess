@@ -9,7 +9,12 @@ CMakeFiles/simple-chess.dir/src/Board.cpp.o: ../src/Board.h
 CMakeFiles/simple-chess.dir/src/Board.cpp.o: ../src/BoardVector.h
 CMakeFiles/simple-chess.dir/src/Board.cpp.o: ../src/ChessPiece.h
 CMakeFiles/simple-chess.dir/src/Board.cpp.o: ../src/Data.h
+CMakeFiles/simple-chess.dir/src/Board.cpp.o: ../src/Pieces/Bishop.h
+CMakeFiles/simple-chess.dir/src/Board.cpp.o: ../src/Pieces/King.h
+CMakeFiles/simple-chess.dir/src/Board.cpp.o: ../src/Pieces/Knight.h
 CMakeFiles/simple-chess.dir/src/Board.cpp.o: ../src/Pieces/Pawn.h
+CMakeFiles/simple-chess.dir/src/Board.cpp.o: ../src/Pieces/Queen.h
+CMakeFiles/simple-chess.dir/src/Board.cpp.o: ../src/Pieces/Rook.h
 
 CMakeFiles/simple-chess.dir/src/BoardVector.cpp.o: ../src/BoardVector.cpp
 CMakeFiles/simple-chess.dir/src/BoardVector.cpp.o: ../src/BoardVector.h
@@ -26,12 +31,21 @@ CMakeFiles/simple-chess.dir/src/GameEngine.cpp.o: ../src/Data.h
 CMakeFiles/simple-chess.dir/src/GameEngine.cpp.o: ../src/GameEngine.cpp
 CMakeFiles/simple-chess.dir/src/GameEngine.cpp.o: ../src/GameEngine.h
 
+CMakeFiles/simple-chess.dir/src/Pieces/Bishop.cpp.o: ../src/BoardVector.h
+CMakeFiles/simple-chess.dir/src/Pieces/Bishop.cpp.o: ../src/ChessPiece.h
+CMakeFiles/simple-chess.dir/src/Pieces/Bishop.cpp.o: ../src/Data.h
 CMakeFiles/simple-chess.dir/src/Pieces/Bishop.cpp.o: ../src/Pieces/Bishop.cpp
 CMakeFiles/simple-chess.dir/src/Pieces/Bishop.cpp.o: ../src/Pieces/Bishop.h
 
+CMakeFiles/simple-chess.dir/src/Pieces/King.cpp.o: ../src/BoardVector.h
+CMakeFiles/simple-chess.dir/src/Pieces/King.cpp.o: ../src/ChessPiece.h
+CMakeFiles/simple-chess.dir/src/Pieces/King.cpp.o: ../src/Data.h
 CMakeFiles/simple-chess.dir/src/Pieces/King.cpp.o: ../src/Pieces/King.cpp
 CMakeFiles/simple-chess.dir/src/Pieces/King.cpp.o: ../src/Pieces/King.h
 
+CMakeFiles/simple-chess.dir/src/Pieces/Knight.cpp.o: ../src/BoardVector.h
+CMakeFiles/simple-chess.dir/src/Pieces/Knight.cpp.o: ../src/ChessPiece.h
+CMakeFiles/simple-chess.dir/src/Pieces/Knight.cpp.o: ../src/Data.h
 CMakeFiles/simple-chess.dir/src/Pieces/Knight.cpp.o: ../src/Pieces/Knight.cpp
 CMakeFiles/simple-chess.dir/src/Pieces/Knight.cpp.o: ../src/Pieces/Knight.h
 
@@ -41,9 +55,15 @@ CMakeFiles/simple-chess.dir/src/Pieces/Pawn.cpp.o: ../src/Data.h
 CMakeFiles/simple-chess.dir/src/Pieces/Pawn.cpp.o: ../src/Pieces/Pawn.cpp
 CMakeFiles/simple-chess.dir/src/Pieces/Pawn.cpp.o: ../src/Pieces/Pawn.h
 
+CMakeFiles/simple-chess.dir/src/Pieces/Queen.cpp.o: ../src/BoardVector.h
+CMakeFiles/simple-chess.dir/src/Pieces/Queen.cpp.o: ../src/ChessPiece.h
+CMakeFiles/simple-chess.dir/src/Pieces/Queen.cpp.o: ../src/Data.h
 CMakeFiles/simple-chess.dir/src/Pieces/Queen.cpp.o: ../src/Pieces/Queen.cpp
 CMakeFiles/simple-chess.dir/src/Pieces/Queen.cpp.o: ../src/Pieces/Queen.h
 
+CMakeFiles/simple-chess.dir/src/Pieces/Rook.cpp.o: ../src/BoardVector.h
+CMakeFiles/simple-chess.dir/src/Pieces/Rook.cpp.o: ../src/ChessPiece.h
+CMakeFiles/simple-chess.dir/src/Pieces/Rook.cpp.o: ../src/Data.h
 CMakeFiles/simple-chess.dir/src/Pieces/Rook.cpp.o: ../src/Pieces/Rook.cpp
 CMakeFiles/simple-chess.dir/src/Pieces/Rook.cpp.o: ../src/Pieces/Rook.h
 

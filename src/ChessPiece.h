@@ -16,15 +16,13 @@ protected:
     BoardVector position;
     sf::Texture t1;
     sf::Sprite sPiece;
+    Color color;
+
 public:
     void setSPiece(const sf::Sprite &sPiece);
 
-public:
     sf::Sprite &getSPiece();
 
-protected:
-    Color color;
-public:
     const BoardVector &getPosition() const;
 
     const sf::Texture &getT1() const;
@@ -32,6 +30,8 @@ public:
     Color getColor() const;
 
     explicit ChessPiece(BoardVector position);
+
+    ChessPiece(BoardVector position, Color color, std::string textureURL);
 
     virtual void move(BoardVector);
 

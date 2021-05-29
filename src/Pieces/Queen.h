@@ -6,8 +6,12 @@
 #define SIMPLE_CHESS_QUEEN_H
 
 
-class Queen {
+#include "../ChessPiece.h"
 
+class Queen : public ChessPiece {
+public:
+    bool isPossibleToMove() override;
+    Queen(BoardVector position, Color color, std::string textureUrl);
 };
 
 

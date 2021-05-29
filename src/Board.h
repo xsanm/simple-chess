@@ -7,6 +7,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "ChessPiece.h"
+#include "Data.h"
 
 class Board {
 private:
@@ -14,21 +15,20 @@ private:
     sf::Texture darkSquare;
     sf::Texture lightSquare;
     std::vector<sf::Sprite> boardTextures;
-public:
-    const std::vector<sf::Sprite> &getBoardTextures() const;
-
-private:
     sf::Sprite sBoard;
     std::vector<ChessPiece *> pieces;
 public:
+    const std::vector<sf::Sprite> &getBoardTextures() const;
+
     const std::vector<ChessPiece *> &getPieces() const;
 
-public:
     const sf::Sprite &getSBoard() const;
 
-public:
     Board();
+
     void generatePieces();
+
+    void generateBoard();
 };
 
 

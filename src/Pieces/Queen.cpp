@@ -3,3 +3,11 @@
 //
 
 #include "Queen.h"
+
+bool Queen::isPossibleToMove() {
+    return false;
+}
+
+Queen::Queen(BoardVector position, Color color, std::string textureUrl) : ChessPiece(position, color, textureUrl) {
+
+}

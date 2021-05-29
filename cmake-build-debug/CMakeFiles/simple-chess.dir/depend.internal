@@ -10,7 +10,12 @@ CMakeFiles/simple-chess.dir/src/Board.cpp.o
  /home/xsan/simple-chess/src/BoardVector.h
  /home/xsan/simple-chess/src/ChessPiece.h
  /home/xsan/simple-chess/src/Data.h
+ /home/xsan/simple-chess/src/Pieces/Bishop.h
+ /home/xsan/simple-chess/src/Pieces/King.h
+ /home/xsan/simple-chess/src/Pieces/Knight.h
  /home/xsan/simple-chess/src/Pieces/Pawn.h
+ /home/xsan/simple-chess/src/Pieces/Queen.h
+ /home/xsan/simple-chess/src/Pieces/Rook.h
 CMakeFiles/simple-chess.dir/src/BoardVector.cpp.o
  /home/xsan/simple-chess/src/BoardVector.cpp
  /home/xsan/simple-chess/src/BoardVector.h
@@ -27,12 +32,21 @@ CMakeFiles/simple-chess.dir/src/GameEngine.cpp.o
  /home/xsan/simple-chess/src/GameEngine.cpp
  /home/xsan/simple-chess/src/GameEngine.h
 CMakeFiles/simple-chess.dir/src/Pieces/Bishop.cpp.o
+ /home/xsan/simple-chess/src/BoardVector.h
+ /home/xsan/simple-chess/src/ChessPiece.h
+ /home/xsan/simple-chess/src/Data.h
  /home/xsan/simple-chess/src/Pieces/Bishop.cpp
  /home/xsan/simple-chess/src/Pieces/Bishop.h
 CMakeFiles/simple-chess.dir/src/Pieces/King.cpp.o
+ /home/xsan/simple-chess/src/BoardVector.h
+ /home/xsan/simple-chess/src/ChessPiece.h
+ /home/xsan/simple-chess/src/Data.h
  /home/xsan/simple-chess/src/Pieces/King.cpp
  /home/xsan/simple-chess/src/Pieces/King.h
 CMakeFiles/simple-chess.dir/src/Pieces/Knight.cpp.o
+ /home/xsan/simple-chess/src/BoardVector.h
+ /home/xsan/simple-chess/src/ChessPiece.h
+ /home/xsan/simple-chess/src/Data.h
  /home/xsan/simple-chess/src/Pieces/Knight.cpp
  /home/xsan/simple-chess/src/Pieces/Knight.h
 CMakeFiles/simple-chess.dir/src/Pieces/Pawn.cpp.o
@@ -42,8 +56,14 @@ CMakeFiles/simple-chess.dir/src/Pieces/Pawn.cpp.o
  /home/xsan/simple-chess/src/Pieces/Pawn.cpp
  /home/xsan/simple-chess/src/Pieces/Pawn.h
 CMakeFiles/simple-chess.dir/src/Pieces/Queen.cpp.o
+ /home/xsan/simple-chess/src/BoardVector.h
+ /home/xsan/simple-chess/src/ChessPiece.h
+ /home/xsan/simple-chess/src/Data.h
  /home/xsan/simple-chess/src/Pieces/Queen.cpp
  /home/xsan/simple-chess/src/Pieces/Queen.h
 CMakeFiles/simple-chess.dir/src/Pieces/Rook.cpp.o
+ /home/xsan/simple-chess/src/BoardVector.h
+ /home/xsan/simple-chess/src/ChessPiece.h
+ /home/xsan/simple-chess/src/Data.h
  /home/xsan/simple-chess/src/Pieces/Rook.cpp
  /home/xsan/simple-chess/src/Pieces/Rook.h

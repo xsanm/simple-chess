@@ -3,3 +3,11 @@
 //
 
 #include "Rook.h"
+
+Rook::Rook(BoardVector position, Color color, std::string textureUrl) : ChessPiece(position, color, textureUrl) {
+
+}
+
+bool Rook::isPossibleToMove() {
+    return false;
+}

@@ -13,6 +13,8 @@ using namespace std;
 void GameEngine::start() {
 
     Board board = Board();
+    board.generateBoard();
+    board.generatePieces();
 
 
     Vector2f offset(0, 0);
@@ -68,8 +70,6 @@ void GameEngine::start() {
         }
 
 
-
-
         if (isMove)
             toMove->getSPiece().setPosition(pos.x - dx, pos.y - dy);
 
@@ -81,7 +81,7 @@ void GameEngine::start() {
         }
         //window.draw(board.getSBoard());
         const std::vector<ChessPiece *> &pieces = board.getPieces();
-
+        //std::cout << pieces.size() << std::endl;
         for (int i = 0; i < pieces.size(); i++) {
             window.draw(pieces[i]->getSPiece());
         }

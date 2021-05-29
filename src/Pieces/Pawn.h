@@ -9,8 +9,9 @@
 #include "../ChessPiece.h"
 
 class Pawn : public ChessPiece{
+private:
 public:
-    Pawn(const BoardVector &position, Color col);
+    Pawn(BoardVector position1, Color color1, std::string textureUrl1);
 
     bool isPossibleToMove() override;
 

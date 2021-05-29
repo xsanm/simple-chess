@@ -6,8 +6,12 @@
 #define SIMPLE_CHESS_KING_H
 
 
-class King {
+#include "../ChessPiece.h"
 
+class King : public ChessPiece {
+public:
+    bool isPossibleToMove() override;
+    King(BoardVector position, Color color, std::string textureUrl);
 };
 
 

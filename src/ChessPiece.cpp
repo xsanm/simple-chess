@@ -35,3 +35,12 @@ sf::Sprite &ChessPiece::getSPiece() {
 void ChessPiece::setSPiece(const sf::Sprite &sPiece) {
     ChessPiece::sPiece = sPiece;
 }
+
+ChessPiece::ChessPiece(BoardVector position, Color color, std::string textureURL) {
+    this->color = color;
+    this->t1.loadFromFile(textureURL);
+    sPiece = sf::Sprite(this->t1);
+    sPiece.setScale(sf::Vector2f(0.4, 0.4));
+    sPiece.setPosition(SquareSize * (position.getX() - 1) + SquareOffset + 3, SquareSize * (8 - position.getY()) + SquareOffset);
+}
+

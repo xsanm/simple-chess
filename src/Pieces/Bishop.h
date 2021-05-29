@@ -6,7 +6,13 @@
 #define SIMPLE_CHESS_BISHOP_H
 
 
-class Bishop {
+#include "../ChessPiece.h"
+
+class Bishop : public ChessPiece {
+public:
+    bool isPossibleToMove() override;
+    Bishop(BoardVector position, Color color, std::string textureUrl);
+
 
 };
 

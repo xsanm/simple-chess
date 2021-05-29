@@ -3,3 +3,11 @@
 //
 
 #include "Knight.h"
+
+bool Knight::isPossibleToMove() {
+    return false;
+}
+
+Knight::Knight(BoardVector position, Color color, std::string textureUrl) : ChessPiece(position, color, textureUrl) {
+
+}

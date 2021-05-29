@@ -8,5 +8,7 @@
 #include <SFML/Graphics.hpp>
 
 enum Color { white, black };
+const int SquareSize = 64;
+const int SquareOffset = 8;
 
 #endif //SIMPLE_CHESS_DATA_H

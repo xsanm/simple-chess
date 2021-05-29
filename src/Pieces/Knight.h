@@ -6,8 +6,12 @@
 #define SIMPLE_CHESS_KNIGHT_H
 
 
-class Knight {
+#include "../ChessPiece.h"
 
+class Knight : public ChessPiece {
+public:
+    bool isPossibleToMove() override;
+    Knight(BoardVector position, Color color, std::string textureUrl);
 };
 
 

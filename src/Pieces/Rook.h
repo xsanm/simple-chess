@@ -6,8 +6,13 @@
 #define SIMPLE_CHESS_ROOK_H
 
 
-class Rook {
+#include "../ChessPiece.h"
 
+class Rook : public ChessPiece {
+public:
+    bool isPossibleToMove() override;
+
+    Rook(BoardVector position, Color color, std::string textureUrl);
 };
 
 
