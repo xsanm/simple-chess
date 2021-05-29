@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+/home/xsan/simple-chess/src/Board.h
+SFML/Graphics.hpp
+-
+ChessPiece.h
+/home/xsan/simple-chess/src/ChessPiece.h
+
 /home/xsan/simple-chess/src/BoardVector.h
 
 /home/xsan/simple-chess/src/ChessPiece.h
@@ -18,13 +24,15 @@ BoardVector.h
 SFML/Graphics.hpp
 -
 
-/home/xsan/simple-chess/src/Pieces/Pawn.cpp
-Pawn.h
-/home/xsan/simple-chess/src/Pieces/Pawn.h
+/home/xsan/simple-chess/src/GameEngine.cpp
+iostream
+-
+GameEngine.h
+/home/xsan/simple-chess/src/GameEngine.h
+Board.h
+/home/xsan/simple-chess/src/Board.h
+SFML/Graphics.hpp
+-
 
-/home/xsan/simple-chess/src/Pieces/Pawn.h
-../Data.h
-/home/xsan/simple-chess/src/Data.h
-../ChessPiece.h
-/home/xsan/simple-chess/src/ChessPiece.h
+/home/xsan/simple-chess/src/GameEngine.h
 

@@ -17,7 +17,10 @@ protected:
     sf::Texture t1;
     sf::Sprite sPiece;
 public:
-    const sf::Sprite &getSPiece() const;
+    void setSPiece(const sf::Sprite &sPiece);
+
+public:
+    sf::Sprite &getSPiece();
 
 protected:
     Color color;

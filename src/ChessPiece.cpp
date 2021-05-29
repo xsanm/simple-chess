@@ -28,6 +28,10 @@ std::vector<BoardVector> ChessPiece::possibleMoves() {
     return std::vector<BoardVector>();
 }
 
-const sf::Sprite &ChessPiece::getSPiece() const {
+sf::Sprite &ChessPiece::getSPiece() {
     return sPiece;
+}
+
+void ChessPiece::setSPiece(const sf::Sprite &sPiece) {
+    ChessPiece::sPiece = sPiece;
 }
