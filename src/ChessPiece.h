@@ -37,8 +37,10 @@ public:
 
     virtual bool isPossibleToMove() = 0;
 
-    virtual std::vector<BoardVector> possibleMoves(const std::vector<ChessPiece *> &pieces);
+    virtual bool amIKing();
 
+    virtual std::vector<BoardVector> possibleMoves(const std::vector<ChessPiece *> &pieces);
+    virtual std::vector<BoardVector> attackingMoves(const std::vector<ChessPiece *> &pieces);
 
     int checkSquare(const std::vector<ChessPiece *> &vector, BoardVector vector1, Color color);
 };

@@ -11,7 +11,12 @@
 class Queen : public ChessPiece {
 public:
     bool isPossibleToMove() override;
+
+    std::vector<BoardVector> possibleMoves(const std::vector<ChessPiece *> &pieces) override;
+
     Queen(BoardVector position, Color color, std::string textureUrl);
+
+    std::vector<BoardVector> attackingMoves(const std::vector<ChessPiece *> &pieces) override;
 };
 
 

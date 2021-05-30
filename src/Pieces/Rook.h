@@ -15,6 +15,8 @@ public:
     std::vector<BoardVector> possibleMoves(const std::vector<ChessPiece *> &pieces) override;
 
     Rook(BoardVector position, Color color, std::string textureUrl);
+
+    std::vector<BoardVector> attackingMoves(const std::vector<ChessPiece *> &pieces) override;
 };
 
 

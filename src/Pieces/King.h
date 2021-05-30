@@ -12,6 +12,12 @@ class King : public ChessPiece {
 public:
     bool isPossibleToMove() override;
     King(BoardVector position, Color color, std::string textureUrl);
+
+    std::vector<BoardVector> possibleMoves(const std::vector<ChessPiece *> &pieces) override;
+
+    bool amIKing() override;
+
+    std::vector<BoardVector> attackingMoves(const std::vector<ChessPiece *> &pieces) override;
 };
 
 

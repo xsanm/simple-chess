@@ -14,6 +14,8 @@ public:
     Knight(BoardVector position, Color color, std::string textureUrl);
 
     std::vector<BoardVector> possibleMoves(const std::vector<ChessPiece *> &pieces) override;
+
+    std::vector<BoardVector> attackingMoves(const std::vector<ChessPiece *> &pieces) override;
 };
 
 

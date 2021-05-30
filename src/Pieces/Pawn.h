@@ -20,6 +20,7 @@ public:
 
     std::vector<BoardVector> possibleMoves(const std::vector<ChessPiece *> &pieces) override;
 
+    std::vector<BoardVector> attackingMoves(const std::vector<ChessPiece *> &pieces) override;
 };
 
 

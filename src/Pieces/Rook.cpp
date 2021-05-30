@@ -15,8 +15,14 @@ bool Rook::isPossibleToMove() {
 
 
 std::vector<BoardVector> Rook::possibleMoves(const std::vector<ChessPiece *> &pieces) {
-    std::vector<BoardVector> result;
+    std::vector<BoardVector> result = Rook::attackingMoves(pieces);
     result.push_back(this->position);
+    return result;
+}
+
+std::vector<BoardVector> Rook::attackingMoves(const std::vector<ChessPiece *> &pieces) {
+    std::vector<BoardVector> result;
+
     int y = position.getY();
     int x = position.getX();
 

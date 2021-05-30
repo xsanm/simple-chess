@@ -14,7 +14,7 @@ Pawn::Pawn(BoardVector position1, Color color1, std::string textureUrl1) : Chess
 }
 
 std::vector<BoardVector> Pawn::possibleMoves(const std::vector<ChessPiece *> &pieces) {
-    std::vector<BoardVector> result;
+    std::vector<BoardVector> result = Pawn::attackingMoves(pieces);
     result.push_back(this->position);
     //std::cout << "Hello ";
     int y = position.getY();
@@ -31,12 +31,6 @@ std::vector<BoardVector> Pawn::possibleMoves(const std::vector<ChessPiece *> &pi
         }
         if (possibleDoubleForward && pieces[j]->getPosition() == BoardVector(x, y2)) {
             possibleDoubleForward = false;
-        }
-        if (pieces[j]->getPosition() == BoardVector(x + 1, y) && pieces[j]->getColor() != color) {
-            result.push_back(BoardVector(x + 1, y));
-        }
-        if (pieces[j]->getPosition() == BoardVector(x - 1, y) && pieces[j]->getColor() != color) {
-            result.push_back(BoardVector(x - 1, y));
         }
     }
     if (possibleForward) {
@@ -56,6 +50,27 @@ void Pawn::move(BoardVector position) {
         isFirst = false;
     }
     ChessPiece::move(position);
+}
+
+std::vector<BoardVector> Pawn::attackingMoves(const std::vector<ChessPiece *> &pieces) {
+    std::vector<BoardVector> result;
+    int y = position.getY();
+    int x = position.getX();
+    y = color == white ? y + 1 : y - 1;
+
+    bool possibleForward = true;
+    for (int j = 0; j < pieces.size(); j++) {
+        if (pieces[j]->getPosition() == BoardVector(x + 1, y) && pieces[j]->getColor() != color) {
+            result.push_back(BoardVector(x + 1, y));
+        }
+        if (pieces[j]->getPosition() == BoardVector(x - 1, y) && pieces[j]->getColor() != color) {
+            result.push_back(BoardVector(x - 1, y));
+        }
+    }
+    if (possibleForward) {
+        result.push_back(BoardVector(x, y));
+    }
+    return result;
 }
 
 

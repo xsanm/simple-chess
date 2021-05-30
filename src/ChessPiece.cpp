@@ -61,4 +61,12 @@ int ChessPiece::checkSquare(const std::vector<ChessPiece *> &pieces, BoardVector
     return 1;
 }
 
+std::vector<BoardVector> ChessPiece::attackingMoves(const std::vector<ChessPiece *> &pieces) {
+    return std::vector<BoardVector>();
+}
+
+bool ChessPiece::amIKing() {
+    return false;
+}
+
 

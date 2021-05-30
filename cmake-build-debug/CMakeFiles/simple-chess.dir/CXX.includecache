@@ -8,12 +8,6 @@
 
 /home/xsan/simple-chess/src/BoardVector.h
 
-/home/xsan/simple-chess/src/ChessPiece.cpp
-iostream
--
-ChessPiece.h
-/home/xsan/simple-chess/src/ChessPiece.h
-
 /home/xsan/simple-chess/src/ChessPiece.h
 Data.h
 /home/xsan/simple-chess/src/Data.h
@@ -25,4 +19,14 @@ SFML/Graphics.hpp
 -
 map
 -
+
+/home/xsan/simple-chess/src/Pieces/King.cpp
+iostream
+-
+King.h
+/home/xsan/simple-chess/src/Pieces/King.h
+
+/home/xsan/simple-chess/src/Pieces/King.h
+../ChessPiece.h
+/home/xsan/simple-chess/src/ChessPiece.h
 
