@@ -40,6 +40,7 @@ public:
     virtual std::vector<BoardVector> possibleMoves(const std::vector<ChessPiece *> &pieces);
 
 
+    int checkSquare(const std::vector<ChessPiece *> &vector, BoardVector vector1, Color color);
 };
 
 

@@ -1,3 +1,5 @@
+
+
 //
 // Created by xsan on 28.05.2021.
 //
@@ -12,6 +14,8 @@ class Bishop : public ChessPiece {
 public:
     bool isPossibleToMove() override;
     Bishop(BoardVector position, Color color, std::string textureUrl);
+
+    std::vector<BoardVector> possibleMoves(const std::vector<ChessPiece *> &pieces) override;
 
 
 };
