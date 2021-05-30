@@ -33,11 +33,11 @@ public:
 
     ChessPiece(BoardVector position, Color color, std::string textureURL);
 
-    virtual void move(BoardVector);
+    virtual void move(BoardVector position);
 
     virtual bool isPossibleToMove() = 0;
 
-    virtual std::vector<BoardVector> possibleMoves();
+    virtual std::vector<BoardVector> possibleMoves(const std::vector<ChessPiece *> &pieces);
 
 
 };

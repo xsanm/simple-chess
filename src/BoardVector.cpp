@@ -23,3 +23,9 @@ int BoardVector::getX() const {
 int BoardVector::getY() const {
     return y;
 }
+
+bool operator==(const BoardVector &lhs, const BoardVector &rhs) {
+    return lhs.x == rhs.x && lhs.y == rhs.y;
+}
+
+

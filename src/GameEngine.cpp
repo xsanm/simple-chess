@@ -15,6 +15,12 @@ void GameEngine::start() {
     Board board = Board();
     board.generateBoard();
     board.generatePieces();
+    vector<BoardVector> availablePositions;
+
+    const std::vector<ChessPiece *> &pieces = board.getPieces();
+//    for(int i = 0; i < pieces.size(); i++) {
+//        std::cout << pieces[i]->getPosition().getX() << " " << pieces[i]->getPosition().getY() << '\n';
+//    }
 
 
     Vector2f offset(0, 0);
@@ -39,7 +45,12 @@ void GameEngine::start() {
             //drag and drop
             if (e.type == Event::MouseButtonPressed)
                 if (e.key.code == Mouse::Left) {
-                    const std::vector<ChessPiece *> &pieces = board.getPieces();
+//                    vector<BoardVector> vec;
+//                    vec.push_back(BoardVector(1, 1));
+//                    vec.push_back(BoardVector(2, 1));
+//                    vec.push_back(BoardVector(4, 4));
+                    //board.generateBoard(vec);
+
                     for (int i = 0; i < pieces.size(); i++) {
                         Sprite f = pieces[i]->getSPiece();
                         if (f.getGlobalBounds().contains(pos.x, pos.y)) {
@@ -48,15 +59,47 @@ void GameEngine::start() {
                             dx = pos.x - f.getPosition().x;
                             dy = pos.y - f.getPosition().y;
                             oldPos = f.getPosition();
+                            availablePositions = pieces[i]->possibleMoves(pieces);
+                            //std::cout << vec[0].getX() << " " << vec[0].getY() << '\n';
+
+
+                            board.generateBoard(availablePositions);
                         }
                     }
+                    // const vector<Sprite> &boardSquares = board.getBoardTextures();
+                    //std::cout << boardSquares[18].getScale().x;
+//                    for (int i = 0; i < boardSquares.size(); i++) {
+//                        window.draw(boardSquares[i]);
+//                    }
+//                    window.display();
+
                 }
 
             if (e.type == Event::MouseButtonReleased) {
                 if (e.key.code == Mouse::Left) {
+                    Vector2f p = toMove->getSPiece().getPosition() + Vector2f(SquareSize / 2, SquareSize / 2);
+                    newPos = Vector2f(SquareSize * int(p.x / SquareSize) + SquareOffset + 3, SquareSize * int(p.y / SquareSize) + SquareOffset);
+
+                    BoardVector newPosition = BoardVector((int)((newPos.x - 11) / size + 1), 8 - (newPos.y - SquareOffset) / size);
+                    //std::cout << (newPos.x - 11) / size << '\n';
+                    //toMove->move(newPosition);
+                    bool isPossible = false;
+                    for(int i = 0; i < availablePositions.size(); i++) {
+                        if(availablePositions[i] == newPosition) {
+                            isPossible = true;
+                        }
+                    }
+                    if(!isPossible) {
+                        isMove = false;
+                        toMove->getSPiece().setPosition(oldPos);
+                        continue;
+                    }
+                    toMove->move(newPosition);
+                    if (isMove) {
+                        board.generateBoard();
+                    }
                     isMove = false;
-                    Vector2f p = toMove->getSPiece().getPosition() + Vector2f(size / 2, size / 2);
-                    newPos = Vector2f(size * int(p.x / size) + 11, size * int(p.y / size) + 8);
+
 
                     toMove->getSPiece().setPosition(newPos);
                 }
@@ -80,7 +123,6 @@ void GameEngine::start() {
             window.draw(boardSquares[i]);
         }
         //window.draw(board.getSBoard());
-        const std::vector<ChessPiece *> &pieces = board.getPieces();
         //std::cout << pieces.size() << std::endl;
         for (int i = 0; i < pieces.size(); i++) {
             window.draw(pieces[i]->getSPiece());

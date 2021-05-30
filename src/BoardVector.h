@@ -21,6 +21,7 @@ public:
     BoardVector(char x, int y);
 
     BoardVector();
+    friend bool operator==(const BoardVector& a, const BoardVector& b);
 };
 
 

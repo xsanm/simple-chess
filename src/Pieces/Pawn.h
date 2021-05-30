@@ -10,10 +10,15 @@
 
 class Pawn : public ChessPiece{
 private:
+    bool isFirst;
 public:
     Pawn(BoardVector position1, Color color1, std::string textureUrl1);
 
     bool isPossibleToMove() override;
+
+    void move(BoardVector position) override;
+
+    std::vector<BoardVector> possibleMoves(const std::vector<ChessPiece *> &pieces) override;
 
 };
 

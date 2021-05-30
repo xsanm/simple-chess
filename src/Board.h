@@ -13,10 +13,14 @@ class Board {
 private:
     sf::Texture boardTexture;
     sf::Texture darkSquare;
+    sf::Texture darkSquarePossible;
     sf::Texture lightSquare;
+    sf::Texture lightSquarePossible;
     std::vector<sf::Sprite> boardTextures;
     sf::Sprite sBoard;
     std::vector<ChessPiece *> pieces;
+    Color squareColors[9][9];
+
 public:
     const std::vector<sf::Sprite> &getBoardTextures() const;
 
@@ -29,6 +33,8 @@ public:
     void generatePieces();
 
     void generateBoard();
+    void generateBoard(const std::vector<BoardVector>& possible);
+
 };
 
 

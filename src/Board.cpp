@@ -5,6 +5,7 @@
 #include "Board.h"
 #include "Pieces/Pawn.h"
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include "Data.h"
 #include "Pieces/Rook.h"
 #include "Pieces/Bishop.h"
@@ -16,20 +17,34 @@ Board::Board() {
 
     darkSquare.loadFromFile("images/square brown dark_png_128px.png");
     lightSquare.loadFromFile("images/square brown light_png_128px.png");
-
-    int size = 64;
-
-
-
-
-    this->boardTexture.loadFromFile("images/board.png");
-    sBoard = sf::Sprite(this->boardTexture);
-
-
+    darkSquarePossible.loadFromFile("images/square brown dark_png_128px_possible.png");
+    lightSquarePossible.loadFromFile("images/square brown light_png_128px_possible.png");
 }
 
 const sf::Sprite &Board::getSBoard() const {
     return sBoard;
+}
+
+void Board::generateBoard() {
+    boardTextures.clear();
+    bool isDark = true;
+    for (int i = 7; i >= 0; i--) {
+        for (int j = 0; j < 8; j++) {
+            sf::Sprite sp;
+            if (isDark) {
+                sp = sf::Sprite(darkSquare);
+                squareColors[i][j] = black;
+            } else {
+                sp = sf::Sprite(lightSquare);
+                squareColors[i][j] = white;
+            }
+            sp.setScale(sf::Vector2f(0.5, 0.5));
+            sp.setPosition(SquareSize * j, SquareSize * i);
+            isDark = !isDark;
+            this->boardTextures.push_back(sp);
+        }
+        isDark = !isDark;
+    }
 }
 
 void Board::generatePieces() {
@@ -79,6 +94,10 @@ void Board::generatePieces() {
     Queen *queen2 = new Queen(BoardVector('d', 8), black, std::string("images/b_queen_png_128px.png"));
     pieces.push_back(queen1);
     pieces.push_back(queen2);
+
+//    for (int i = 0; i < pieces.size(); i++) {
+//        std::cout << pieces[i]->getPosition().getX() << " " << pieces[i]->getPosition().getY() << '\n';
+//    }
 }
 
 const std::vector<ChessPiece *> &Board::getPieces() const {
@@ -89,21 +108,15 @@ const std::vector<sf::Sprite> &Board::getBoardTextures() const {
     return boardTextures;
 }
 
-void Board::generateBoard() {
-    bool isDark = false;
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 8; j++) {
-            sf::Sprite sp;
-            if (isDark) {
-                sp = sf::Sprite(darkSquare);
-            } else {
-                sp = sf::Sprite(lightSquare);
-            }
-            sp.setScale(sf::Vector2f(0.5, 0.5));
-            sp.setPosition(SquareSize * i, SquareSize * j);
-            isDark = !isDark;
-            this->boardTextures.push_back(sp);
-        }
-        isDark = !isDark;
+void Board::generateBoard(const std::vector<BoardVector> &possible) {
+    for (int i = 0; i < possible.size(); i++) {
+        int col = ((possible[i].getY() - 1) * 8) + possible[i].getX() - 1;
+        //std::cout << possible[i].getX() << ' ' << possible[i].getY() <<' ' << col << std::endl;
+
+        boardTextures[col].setTexture(lightSquarePossible);
+
     }
+
 }
+
+

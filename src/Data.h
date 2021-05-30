@@ -6,6 +6,7 @@
 #define SIMPLE_CHESS_DATA_H
 
 #include <SFML/Graphics.hpp>
+#include <map>
 
 enum Color { white, black };
 const int SquareSize = 64;
