@@ -12,6 +12,8 @@ class Rook : public ChessPiece {
 public:
     bool isPossibleToMove() override;
 
+    std::vector<BoardVector> possibleMoves(const std::vector<ChessPiece *> &pieces) override;
+
     Rook(BoardVector position, Color color, std::string textureUrl);
 };
 
