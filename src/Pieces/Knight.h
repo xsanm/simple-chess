@@ -12,6 +12,8 @@ class Knight : public ChessPiece {
 public:
     bool isPossibleToMove() override;
     Knight(BoardVector position, Color color, std::string textureUrl);
+
+    std::vector<BoardVector> possibleMoves(const std::vector<ChessPiece *> &pieces) override;
 };
 
 

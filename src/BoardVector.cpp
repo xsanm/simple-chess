@@ -28,4 +28,8 @@ bool operator==(const BoardVector &lhs, const BoardVector &rhs) {
     return lhs.x == rhs.x && lhs.y == rhs.y;
 }
 
+bool BoardVector::isOnBoardd() {
+    return x >= 1 && x <= 8 && y >= 1 && y <= 8;
+}
+
 

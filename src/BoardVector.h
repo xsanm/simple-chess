@@ -19,7 +19,7 @@ private:
 public:
     BoardVector(int x, int y);
     BoardVector(char x, int y);
-
+    bool isOnBoardd();
     BoardVector();
     friend bool operator==(const BoardVector& a, const BoardVector& b);
 };
