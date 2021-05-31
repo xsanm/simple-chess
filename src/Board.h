@@ -34,6 +34,7 @@ public:
 
     void generateBoard();
     void generateBoard(const std::vector<BoardVector>& possible);
+    bool isCheck(Color col);
 
 };
 

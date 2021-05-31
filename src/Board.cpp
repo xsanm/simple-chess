@@ -119,4 +119,31 @@ void Board::generateBoard(const std::vector<BoardVector> &possible) {
 
 }
 
+bool Board::isCheck(Color col) {
+    Color attacker = col == white ? black : white;
+    King *king = nullptr;
+
+    for(int i = 0; i < pieces.size(); i++) {
+        if(pieces[i]->amIKing() && pieces[i]->getColor() == col) {
+            king = dynamic_cast<King *>(pieces[i]);
+        }
+    }
+
+    if(king == nullptr) {
+        return false;
+    }
+
+    for(int i = 0; i < pieces.size(); i++) {
+        if(pieces[i]->getColor() == attacker) {
+            std::vector<BoardVector> vec = pieces[i]->attackingMoves(pieces);
+            for(int j = 0; j < vec.size(); j++) {
+                if(vec[j] == king->getPosition())
+                    return true;
+            }
+        }
+    }
+
+    return false;
+}
+
 

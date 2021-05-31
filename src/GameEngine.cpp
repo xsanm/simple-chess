@@ -101,6 +101,7 @@ void GameEngine::start() {
                         toMove->getSPiece().setPosition(oldPos);
                         continue;
                     }
+
                     toMove->move(newPosition);
                     if (isMove) {
                         board.generateBoard();
@@ -109,7 +110,18 @@ void GameEngine::start() {
 
 
                     toMove->getSPiece().setPosition(newPos);
+
+                    if(isWhite && board.isCheck(white) || !isWhite && board.isCheck(black)) {
+                        toMove->getSPiece().setPosition(oldPos);
+                        toMove->move(oldPosition);
+                        continue;
+                    }
+
+
                     if(!(newPosition == oldPosition))isWhite = !isWhite;
+
+                    cout << board.isCheck(white) << endl;
+
                 }
             }
 
