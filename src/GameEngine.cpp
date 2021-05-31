@@ -6,6 +6,7 @@
 #include "GameEngine.h"
 #include "Board.h"
 #include <SFML/Graphics.hpp>
+#include "Data.h"
 
 using namespace sf;
 using namespace std;
@@ -16,6 +17,7 @@ void GameEngine::start() {
     board.generateBoard();
     board.generatePieces();
     vector<BoardVector> availablePositions;
+    bool isWhite = true;
 
     const std::vector<ChessPiece *> &pieces = board.getPieces();
 //    for(int i = 0; i < pieces.size(); i++) {
@@ -54,6 +56,9 @@ void GameEngine::start() {
                     for (int i = 0; i < pieces.size(); i++) {
                         Sprite f = pieces[i]->getSPiece();
                         if (f.getGlobalBounds().contains(pos.x, pos.y)) {
+                            if(isWhite && pieces[i]->getColor() != white || !isWhite && pieces[i]->getColor() != black) {
+                                continue;
+                            }
                             isMove = true;
                             toMove = pieces[i];
                             dx = pos.x - f.getPosition().x;
@@ -67,7 +72,7 @@ void GameEngine::start() {
                         }
                     }
                     // const vector<Sprite> &boardSquares = board.getBoardTextures();
-                    //std::cout << boardSquares[18].getScale().x;
+                    //std::cout << toMove->getPosition().getX() << ' ' <<  toMove->getPosition().getY() << endl;
 //                    for (int i = 0; i < boardSquares.size(); i++) {
 //                        window.draw(boardSquares[i]);
 //                    }
@@ -81,6 +86,8 @@ void GameEngine::start() {
                     newPos = Vector2f(SquareSize * int(p.x / SquareSize) + SquareOffset + 3, SquareSize * int(p.y / SquareSize) + SquareOffset);
 
                     BoardVector newPosition = BoardVector((int)((newPos.x - 11) / size + 1), 8 - (newPos.y - SquareOffset) / size);
+                    BoardVector oldPosition = toMove->getPosition();
+
                     //std::cout << (newPos.x - 11) / size << '\n';
                     //toMove->move(newPosition);
                     bool isPossible = false;
@@ -102,6 +109,7 @@ void GameEngine::start() {
 
 
                     toMove->getSPiece().setPosition(newPos);
+                    if(!(newPosition == oldPosition))isWhite = !isWhite;
                 }
             }
 

@@ -34,9 +34,11 @@ std::vector<BoardVector> Pawn::possibleMoves(const std::vector<ChessPiece *> &pi
         }
     }
     if (possibleForward) {
+        //std::cout << x << ' ' <<  y << std::endl;
         result.push_back(BoardVector(x, y));
     }
     if (possibleDoubleForward) {
+        //std::cout << x << ' ' <<  y << std::endl;
         result.push_back(BoardVector(x, y2));
     }
     return result;
@@ -58,7 +60,6 @@ std::vector<BoardVector> Pawn::attackingMoves(const std::vector<ChessPiece *> &p
     int x = position.getX();
     y = color == white ? y + 1 : y - 1;
 
-    bool possibleForward = true;
     for (int j = 0; j < pieces.size(); j++) {
         if (pieces[j]->getPosition() == BoardVector(x + 1, y) && pieces[j]->getColor() != color) {
             result.push_back(BoardVector(x + 1, y));
@@ -67,9 +68,7 @@ std::vector<BoardVector> Pawn::attackingMoves(const std::vector<ChessPiece *> &p
             result.push_back(BoardVector(x - 1, y));
         }
     }
-    if (possibleForward) {
-        result.push_back(BoardVector(x, y));
-    }
+
     return result;
 }
 
