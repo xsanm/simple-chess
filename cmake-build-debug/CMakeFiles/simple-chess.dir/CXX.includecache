@@ -6,6 +6,28 @@
 
 #IncludeRegexTransform: 
 
+/home/xsan/simple-chess/src/Board.cpp
+Board.h
+/home/xsan/simple-chess/src/Board.h
+Pieces/Pawn.h
+/home/xsan/simple-chess/src/Pieces/Pawn.h
+SFML/Graphics.hpp
+-
+iostream
+-
+Data.h
+/home/xsan/simple-chess/src/Data.h
+Pieces/Rook.h
+/home/xsan/simple-chess/src/Pieces/Rook.h
+Pieces/Bishop.h
+/home/xsan/simple-chess/src/Pieces/Bishop.h
+Pieces/Knight.h
+/home/xsan/simple-chess/src/Pieces/Knight.h
+Pieces/King.h
+/home/xsan/simple-chess/src/Pieces/King.h
+Pieces/Queen.h
+/home/xsan/simple-chess/src/Pieces/Queen.h
+
 /home/xsan/simple-chess/src/Board.h
 SFML/Graphics.hpp
 -
@@ -28,17 +50,29 @@ SFML/Graphics.hpp
 map
 -
 
-/home/xsan/simple-chess/src/GameEngine.cpp
-iostream
--
-GameEngine.h
-/home/xsan/simple-chess/src/GameEngine.h
-Board.h
-/home/xsan/simple-chess/src/Board.h
-SFML/Graphics.hpp
--
-Data.h
-/home/xsan/simple-chess/src/Data.h
+/home/xsan/simple-chess/src/Pieces/Bishop.h
+../ChessPiece.h
+/home/xsan/simple-chess/src/ChessPiece.h
 
-/home/xsan/simple-chess/src/GameEngine.h
+/home/xsan/simple-chess/src/Pieces/King.h
+../ChessPiece.h
+/home/xsan/simple-chess/src/ChessPiece.h
+
+/home/xsan/simple-chess/src/Pieces/Knight.h
+../ChessPiece.h
+/home/xsan/simple-chess/src/ChessPiece.h
+
+/home/xsan/simple-chess/src/Pieces/Pawn.h
+../Data.h
+/home/xsan/simple-chess/src/Data.h
+../ChessPiece.h
+/home/xsan/simple-chess/src/ChessPiece.h
+
+/home/xsan/simple-chess/src/Pieces/Queen.h
+../ChessPiece.h
+/home/xsan/simple-chess/src/ChessPiece.h
+
+/home/xsan/simple-chess/src/Pieces/Rook.h
+../ChessPiece.h
+/home/xsan/simple-chess/src/ChessPiece.h
 

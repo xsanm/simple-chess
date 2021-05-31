@@ -24,7 +24,7 @@ private:
 public:
     const std::vector<sf::Sprite> &getBoardTextures() const;
 
-    const std::vector<ChessPiece *> &getPieces() const;
+    std::vector<ChessPiece *> &getPieces();
 
     const sf::Sprite &getSBoard() const;
 
@@ -35,6 +35,7 @@ public:
     void generateBoard();
     void generateBoard(const std::vector<BoardVector>& possible);
     bool isCheck(Color col);
+    bool makeMove(ChessPiece *piece, BoardVector to);
 
 };
 

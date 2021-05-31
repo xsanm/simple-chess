@@ -19,7 +19,7 @@ void GameEngine::start() {
     vector<BoardVector> availablePositions;
     bool isWhite = true;
 
-    const std::vector<ChessPiece *> &pieces = board.getPieces();
+    std::vector<ChessPiece *> &pieces = board.getPieces();
 //    for(int i = 0; i < pieces.size(); i++) {
 //        std::cout << pieces[i]->getPosition().getX() << " " << pieces[i]->getPosition().getY() << '\n';
 //    }
@@ -57,6 +57,7 @@ void GameEngine::start() {
                         Sprite f = pieces[i]->getSPiece();
                         if (f.getGlobalBounds().contains(pos.x, pos.y)) {
                             if(isWhite && pieces[i]->getColor() != white || !isWhite && pieces[i]->getColor() != black) {
+                                isMove = false;
                                 continue;
                             }
                             isMove = true;
@@ -90,6 +91,7 @@ void GameEngine::start() {
 
                     //std::cout << (newPos.x - 11) / size << '\n';
                     //toMove->move(newPosition);
+                    if(!isMove) continue;
                     bool isPossible = false;
                     for(int i = 0; i < availablePositions.size(); i++) {
                         if(availablePositions[i] == newPosition) {
@@ -102,25 +104,40 @@ void GameEngine::start() {
                         continue;
                     }
 
-                    toMove->move(newPosition);
+                    if(board.makeMove(toMove, newPosition)) {
+                        toMove->getSPiece().setPosition(newPos);
+                        isWhite = !isWhite;
+                        //pieces = board.getPieces();
+                        cout << "robie ruch\n";
+                    } else {
+                        toMove->getSPiece().setPosition(oldPos);
+                        cout << "nie robie i chuj\n";
+                    }
+
                     if (isMove) {
                         board.generateBoard();
-                    }
+                   }
                     isMove = false;
 
-
-                    toMove->getSPiece().setPosition(newPos);
-
-                    if(isWhite && board.isCheck(white) || !isWhite && board.isCheck(black)) {
-                        toMove->getSPiece().setPosition(oldPos);
-                        toMove->move(oldPosition);
-                        continue;
-                    }
-
-
-                    if(!(newPosition == oldPosition))isWhite = !isWhite;
-
-                    cout << board.isCheck(white) << endl;
+//                    toMove->move(newPosition);
+//                    if (isMove) {
+//                        board.generateBoard();
+//                    }
+//                    isMove = false;
+//
+//
+//                    toMove->getSPiece().setPosition(newPos);
+//
+//                    if(isWhite && board.isCheck(white) || !isWhite && board.isCheck(black)) {
+//                        toMove->getSPiece().setPosition(oldPos);
+//                        toMove->move(oldPosition);
+//                        continue;
+//                    }
+//
+//
+//                    if(!(newPosition == oldPosition))isWhite = !isWhite;
+//
+//                    cout << board.isCheck(white) << endl;
 
                 }
             }

@@ -100,7 +100,7 @@ void Board::generatePieces() {
 //    }
 }
 
-const std::vector<ChessPiece *> &Board::getPieces() const {
+std::vector<ChessPiece *> &Board::getPieces() {
     return pieces;
 }
 
@@ -123,27 +123,50 @@ bool Board::isCheck(Color col) {
     Color attacker = col == white ? black : white;
     King *king = nullptr;
 
-    for(int i = 0; i < pieces.size(); i++) {
-        if(pieces[i]->amIKing() && pieces[i]->getColor() == col) {
+    for (int i = 0; i < pieces.size(); i++) {
+        if (pieces[i]->amIKing() && pieces[i]->getColor() == col) {
             king = dynamic_cast<King *>(pieces[i]);
         }
     }
 
-    if(king == nullptr) {
+    if (king == nullptr) {
         return false;
     }
 
-    for(int i = 0; i < pieces.size(); i++) {
-        if(pieces[i]->getColor() == attacker) {
+    for (int i = 0; i < pieces.size(); i++) {
+        if (pieces[i]->getColor() == attacker) {
             std::vector<BoardVector> vec = pieces[i]->attackingMoves(pieces);
-            for(int j = 0; j < vec.size(); j++) {
-                if(vec[j] == king->getPosition())
+            for (int j = 0; j < vec.size(); j++) {
+                if (vec[j] == king->getPosition())
                     return true;
             }
         }
     }
 
     return false;
+}
+
+bool Board::makeMove(ChessPiece *chessPiece, BoardVector to) {
+    if (chessPiece->getPosition() == to) {
+        return false;
+    }
+
+    BoardVector from = chessPiece->getPosition();
+    ChessPiece *captured = nullptr;
+    for (int i = 0; i < pieces.size(); i++) {
+        if(pieces[i]->getPosition() == to) {
+            std::swap(captured, pieces[i]);
+            pieces.erase(pieces.begin() + i);
+        }
+    }
+    chessPiece->move(to);
+
+    if(isCheck(chessPiece->getColor())) {
+        if(captured != nullptr) pieces.push_back(captured);
+        chessPiece->move(from);
+        return false;
+    }
+    return true;
 }
 
 
