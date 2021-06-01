@@ -22,7 +22,7 @@ public:
     bool isOnBoardd();
     BoardVector();
     friend bool operator==(const BoardVector& a, const BoardVector& b);
-    std::string toString();
+    std::string toString() const;
 };
 
 

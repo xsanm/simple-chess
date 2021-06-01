@@ -31,7 +31,7 @@ void GameEngine::start() {
     bool isMove = false;
     int size = 64;
     Vector2f oldPos, newPos;
-    ChessPiece *toMove;
+    ChessPiece *toMove = nullptr;
 
     std::cout << "Game Starting" << std::endl;
     sf::RenderWindow window(sf::VideoMode(512, 512), "Simple chess");
@@ -46,17 +46,23 @@ void GameEngine::start() {
             BoardVector to = BoardVector(int(next[2] - 'a' + 1), next[3] - '0');
             cout << "From -> to " << from.toString() << " " << to.toString() << endl;
             for(int i = 0; i < pieces.size(); i++) {
+                if(pieces[i]->amIKing()) {
+                    cout << "King " << pieces[i]->getPosition().toString() << endl;
+                }
+            }
+            for(int i = 0; i < pieces.size(); i++) {
                 if(pieces[i]->getPosition() == from) {
+                    ChessPiece *tmpPiece = pieces[i];
                     cout << pieces.size() << endl;
 
 
 
-                    Vector2f p = pieces[i]->getSPiece().getPosition() + Vector2f(SquareSize / 2, SquareSize / 2);
+                    Vector2f p = tmpPiece->getSPiece().getPosition() + Vector2f(SquareSize / 2, SquareSize / 2);
                     newPos = Vector2f(SquareSize * (to.getX() - 1) + SquareOffset + 3, SquareSize * (8 - to.getY()) + SquareOffset);
-                    board.makeMove(pieces[i], to);
-                    pieces[i]->getSPiece().setPosition(newPos);
+                    board.makeMove(tmpPiece, to);
+                    tmpPiece->getSPiece().setPosition(newPos);
                     isWhite = !isWhite;
-
+                    break;
                     //isMove = true;
                 }
             }
@@ -192,6 +198,7 @@ void GameEngine::start() {
         for (int i = 0; i < pieces.size(); i++) {
             window.draw(pieces[i]->getSPiece());
         }
+        //if(toMove != nullptr) window.draw(toMove->getSPiece());
 
         window.display();
     }

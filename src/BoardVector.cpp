@@ -34,7 +34,7 @@ bool BoardVector::isOnBoardd() {
     return x >= 1 && x <= 8 && y >= 1 && y <= 8;
 }
 
-std::string BoardVector::toString() {
+std::string BoardVector::toString() const {
     std::string res = "";
     //std::cout << x << ' ' << y << '\n';
     res += char(x + 'a' - 1);

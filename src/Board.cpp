@@ -155,8 +155,9 @@ bool Board::makeMove(ChessPiece *chessPiece, BoardVector to) {
     ChessPiece *captured = nullptr;
     for (int i = 0; i < pieces.size(); i++) {
         if(pieces[i]->getPosition() == to) {
-            std::swap(captured, pieces[i]);
+            captured= pieces[i];
             pieces.erase(pieces.begin() + i);
+            break;
         }
     }
     chessPiece->move(to);
