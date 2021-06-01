@@ -20,13 +20,19 @@ void GameEngine::start() {
     vector<BoardVector> availablePositions;
     bool isWhite = true;
 
+    Texture t;
+    t.loadFromFile("images/backgorund.png");
+    Sprite s = Sprite(t);
+    s.setScale(Vector2f(0.987, 0.987));
+
+
     std::vector<ChessPiece *> &pieces = board.getPieces();
 //    for(int i = 0; i < pieces.size(); i++) {
 //        std::cout << pieces[i]->getPosition().getX() << " " << pieces[i]->getPosition().getY() << '\n';
 //    }
 
 
-    Vector2f offset(0, 0);
+    Vector2f offset(0,0);
     float dx = 0, dy = 0;
     bool isMove = false;
     int size = 64;
@@ -34,8 +40,10 @@ void GameEngine::start() {
     ChessPiece *toMove = nullptr;
 
     std::cout << "Game Starting" << std::endl;
-    sf::RenderWindow window(sf::VideoMode(512, 512), "Simple chess");
+    sf::RenderWindow window(sf::VideoMode(560, 560), "Simple chess");
 
+    window.draw(s);
+    window.display();
     while (window.isOpen()) {
 
         if(!isWhite) {
@@ -188,7 +196,7 @@ void GameEngine::start() {
             toMove->getSPiece().setPosition(pos.x - dx, pos.y - dy);
 
         window.clear();
-
+        window.draw(s);
         const vector<Sprite> &boardSquares = board.getBoardTextures();
         for (int i = 0; i < boardSquares.size(); i++) {
             window.draw(boardSquares[i]);
