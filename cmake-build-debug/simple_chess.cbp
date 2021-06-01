@@ -105,6 +105,12 @@
 		<Unit filename="/home/xsan/simple-chess/src/ChessPiece.h">
 			<Option target="simple-chess"/>
 		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/Connector.cpp">
+			<Option target="simple-chess"/>
+		</Unit>
+		<Unit filename="/home/xsan/simple-chess/src/Connector.h">
+			<Option target="simple-chess"/>
+		</Unit>
 		<Unit filename="/home/xsan/simple-chess/src/Data.h">
 			<Option target="simple-chess"/>
 		</Unit>

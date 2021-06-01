@@ -20,6 +20,9 @@ private:
     sf::Sprite sBoard;
     std::vector<ChessPiece *> pieces;
     Color squareColors[9][9];
+    std::string gamePosition;
+public:
+    const std::string &getGamePosition() const;
 
 public:
     const std::vector<sf::Sprite> &getBoardTextures() const;

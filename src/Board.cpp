@@ -14,7 +14,7 @@
 #include "Pieces/Queen.h"
 
 Board::Board() {
-
+    gamePosition = "";
     darkSquare.loadFromFile("images/square brown dark_png_128px.png");
     lightSquare.loadFromFile("images/square brown light_png_128px.png");
     darkSquarePossible.loadFromFile("images/square brown dark_png_128px_possible.png");
@@ -166,7 +166,16 @@ bool Board::makeMove(ChessPiece *chessPiece, BoardVector to) {
         chessPiece->move(from);
         return false;
     }
+
+    gamePosition += from.toString();
+    gamePosition += to.toString();
+    gamePosition += " ";
+    std::cout << gamePosition<< '\n';
     return true;
+}
+
+const std::string &Board::getGamePosition() const {
+    return gamePosition;
 }
 
 

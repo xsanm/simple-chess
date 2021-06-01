@@ -250,6 +250,33 @@ src/ChessPiece.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple-chess.dir/build.make CMakeFiles/simple-chess.dir/src/ChessPiece.cpp.s
 .PHONY : src/ChessPiece.cpp.s
 
+src/Connector.o: src/Connector.cpp.o
+
+.PHONY : src/Connector.o
+
+# target to build an object file
+src/Connector.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple-chess.dir/build.make CMakeFiles/simple-chess.dir/src/Connector.cpp.o
+.PHONY : src/Connector.cpp.o
+
+src/Connector.i: src/Connector.cpp.i
+
+.PHONY : src/Connector.i
+
+# target to preprocess a source file
+src/Connector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple-chess.dir/build.make CMakeFiles/simple-chess.dir/src/Connector.cpp.i
+.PHONY : src/Connector.cpp.i
+
+src/Connector.s: src/Connector.cpp.s
+
+.PHONY : src/Connector.s
+
+# target to generate assembly for a file
+src/Connector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple-chess.dir/build.make CMakeFiles/simple-chess.dir/src/Connector.cpp.s
+.PHONY : src/Connector.cpp.s
+
 src/GameEngine.o: src/GameEngine.cpp.o
 
 .PHONY : src/GameEngine.o
@@ -460,6 +487,9 @@ help:
 	@echo "... src/ChessPiece.o"
 	@echo "... src/ChessPiece.i"
 	@echo "... src/ChessPiece.s"
+	@echo "... src/Connector.o"
+	@echo "... src/Connector.i"
+	@echo "... src/Connector.s"
 	@echo "... src/GameEngine.o"
 	@echo "... src/GameEngine.i"
 	@echo "... src/GameEngine.s"

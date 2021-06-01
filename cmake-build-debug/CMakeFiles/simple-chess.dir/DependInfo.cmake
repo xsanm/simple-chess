@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/xsan/simple-chess/src/Board.cpp" "/home/xsan/simple-chess/cmake-build-debug/CMakeFiles/simple-chess.dir/src/Board.cpp.o"
   "/home/xsan/simple-chess/src/BoardVector.cpp" "/home/xsan/simple-chess/cmake-build-debug/CMakeFiles/simple-chess.dir/src/BoardVector.cpp.o"
   "/home/xsan/simple-chess/src/ChessPiece.cpp" "/home/xsan/simple-chess/cmake-build-debug/CMakeFiles/simple-chess.dir/src/ChessPiece.cpp.o"
+  "/home/xsan/simple-chess/src/Connector.cpp" "/home/xsan/simple-chess/cmake-build-debug/CMakeFiles/simple-chess.dir/src/Connector.cpp.o"
   "/home/xsan/simple-chess/src/GameEngine.cpp" "/home/xsan/simple-chess/cmake-build-debug/CMakeFiles/simple-chess.dir/src/GameEngine.cpp.o"
   "/home/xsan/simple-chess/src/Pieces/Bishop.cpp" "/home/xsan/simple-chess/cmake-build-debug/CMakeFiles/simple-chess.dir/src/Pieces/Bishop.cpp.o"
   "/home/xsan/simple-chess/src/Pieces/King.cpp" "/home/xsan/simple-chess/cmake-build-debug/CMakeFiles/simple-chess.dir/src/Pieces/King.cpp.o"

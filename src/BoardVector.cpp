@@ -2,6 +2,8 @@
 // Created by xsan on 28.05.2021.
 //
 
+#include <string>
+#include <iostream>
 #include "BoardVector.h"
 
 BoardVector::BoardVector(char x, int y) {
@@ -30,6 +32,14 @@ bool operator==(const BoardVector &lhs, const BoardVector &rhs) {
 
 bool BoardVector::isOnBoardd() {
     return x >= 1 && x <= 8 && y >= 1 && y <= 8;
+}
+
+std::string BoardVector::toString() {
+    std::string res = "";
+    //std::cout << x << ' ' << y << '\n';
+    res += char(x + 'a' - 1);
+    res += char(y + '0');
+    return res;
 }
 
 

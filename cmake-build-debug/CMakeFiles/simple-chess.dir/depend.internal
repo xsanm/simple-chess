@@ -24,10 +24,14 @@ CMakeFiles/simple-chess.dir/src/ChessPiece.cpp.o
  /home/xsan/simple-chess/src/ChessPiece.cpp
  /home/xsan/simple-chess/src/ChessPiece.h
  /home/xsan/simple-chess/src/Data.h
+CMakeFiles/simple-chess.dir/src/Connector.cpp.o
+ /home/xsan/simple-chess/src/Connector.cpp
+ /home/xsan/simple-chess/src/Connector.h
 CMakeFiles/simple-chess.dir/src/GameEngine.cpp.o
  /home/xsan/simple-chess/src/Board.h
  /home/xsan/simple-chess/src/BoardVector.h
  /home/xsan/simple-chess/src/ChessPiece.h
+ /home/xsan/simple-chess/src/Connector.h
  /home/xsan/simple-chess/src/Data.h
  /home/xsan/simple-chess/src/GameEngine.cpp
  /home/xsan/simple-chess/src/GameEngine.h

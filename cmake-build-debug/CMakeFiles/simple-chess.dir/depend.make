@@ -24,9 +24,13 @@ CMakeFiles/simple-chess.dir/src/ChessPiece.cpp.o: ../src/ChessPiece.cpp
 CMakeFiles/simple-chess.dir/src/ChessPiece.cpp.o: ../src/ChessPiece.h
 CMakeFiles/simple-chess.dir/src/ChessPiece.cpp.o: ../src/Data.h
 
+CMakeFiles/simple-chess.dir/src/Connector.cpp.o: ../src/Connector.cpp
+CMakeFiles/simple-chess.dir/src/Connector.cpp.o: ../src/Connector.h
+
 CMakeFiles/simple-chess.dir/src/GameEngine.cpp.o: ../src/Board.h
 CMakeFiles/simple-chess.dir/src/GameEngine.cpp.o: ../src/BoardVector.h
 CMakeFiles/simple-chess.dir/src/GameEngine.cpp.o: ../src/ChessPiece.h
+CMakeFiles/simple-chess.dir/src/GameEngine.cpp.o: ../src/Connector.h
 CMakeFiles/simple-chess.dir/src/GameEngine.cpp.o: ../src/Data.h
 CMakeFiles/simple-chess.dir/src/GameEngine.cpp.o: ../src/GameEngine.cpp
 CMakeFiles/simple-chess.dir/src/GameEngine.cpp.o: ../src/GameEngine.h

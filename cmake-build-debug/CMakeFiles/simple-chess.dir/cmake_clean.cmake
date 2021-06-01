@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/simple-chess.dir/src/Board.cpp.o"
   "CMakeFiles/simple-chess.dir/src/BoardVector.cpp.o"
   "CMakeFiles/simple-chess.dir/src/ChessPiece.cpp.o"
+  "CMakeFiles/simple-chess.dir/src/Connector.cpp.o"
   "CMakeFiles/simple-chess.dir/src/GameEngine.cpp.o"
   "CMakeFiles/simple-chess.dir/src/Pieces/Bishop.cpp.o"
   "CMakeFiles/simple-chess.dir/src/Pieces/King.cpp.o"

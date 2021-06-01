@@ -7,6 +7,7 @@
 #include "Board.h"
 #include <SFML/Graphics.hpp>
 #include "Data.h"
+#include "Connector.h"
 
 using namespace sf;
 using namespace std;
@@ -36,6 +37,32 @@ void GameEngine::start() {
     sf::RenderWindow window(sf::VideoMode(512, 512), "Simple chess");
 
     while (window.isOpen()) {
+
+        if(!isWhite) {
+
+            string next = Connector::getNextMove(board.getGamePosition());
+            cout << "Next best " << next << endl;
+            BoardVector from = BoardVector(int(next[0] - 'a' + 1), next[1]-'0');
+            BoardVector to = BoardVector(int(next[2] - 'a' + 1), next[3] - '0');
+            cout << "From -> to " << from.toString() << " " << to.toString() << endl;
+            for(int i = 0; i < pieces.size(); i++) {
+                if(pieces[i]->getPosition() == from) {
+                    cout << pieces.size() << endl;
+
+
+
+                    Vector2f p = pieces[i]->getSPiece().getPosition() + Vector2f(SquareSize / 2, SquareSize / 2);
+                    newPos = Vector2f(SquareSize * (to.getX() - 1) + SquareOffset + 3, SquareSize * (8 - to.getY()) + SquareOffset);
+                    board.makeMove(pieces[i], to);
+                    pieces[i]->getSPiece().setPosition(newPos);
+                    isWhite = !isWhite;
+
+                    //isMove = true;
+                }
+            }
+
+        }
+
         Vector2i pos = Mouse::getPosition(window) - Vector2i(offset);
         Event e;
         while (window.pollEvent(e)) {
@@ -108,6 +135,7 @@ void GameEngine::start() {
                         toMove->getSPiece().setPosition(newPos);
                         isWhite = !isWhite;
                         //pieces = board.getPieces();
+                        cout<< Connector::getNextMove(board.getGamePosition()) << endl;
                         cout << "robie ruch\n";
                     } else {
                         toMove->getSPiece().setPosition(oldPos);
