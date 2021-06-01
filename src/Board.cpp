@@ -168,8 +168,54 @@ bool Board::makeMove(ChessPiece *chessPiece, BoardVector to) {
         return false;
     }
 
-    gamePosition += from.toString();
-    gamePosition += to.toString();
+    std::string moveNotation = "";
+    moveNotation += from.toString();
+    moveNotation += to.toString();
+
+    if(chessPiece->amIKing()) {
+        bool isCastle = false;
+        BoardVector rookFrom;
+        BoardVector rookTo;
+        ChessPiece *rook;
+        if(moveNotation == "e1g1") {
+            rookFrom = BoardVector(8, 1);
+            rookTo = BoardVector(6, 1);
+            isCastle = true;
+        } else if(moveNotation == "e1c1") {
+            rookFrom = BoardVector(1, 1);
+            rookTo = BoardVector(4, 1);
+            isCastle = true;
+        } else if(moveNotation == "e8g8") {
+            rookFrom = BoardVector(8, 8);
+            rookTo = BoardVector(6, 1);
+            isCastle = true;
+        } else if(moveNotation == "e8c8") {
+            rookFrom = BoardVector(1, 8);
+            rookTo = BoardVector(4, 8);
+            isCastle = true;
+        }
+        if(isCastle) {
+            for(int i = 0;i < pieces.size(); i++) {
+                if(pieces[i]->getPosition() == rookFrom) {
+
+                    sf::Vector2f newPos = sf::Vector2f(SquareSize * (rookTo.getX() - 1) + SquareOffset + 3, SquareSize * (8 - rookTo.getY()) + SquareOffset);
+                    pieces[i]->getSPiece().setPosition(newPos);
+
+                    makeMove(pieces[i], rookTo);
+
+                    gamePosition.erase(gamePosition.end() - 1);
+                    gamePosition.erase(gamePosition.end() - 1);
+                    gamePosition.erase(gamePosition.end() - 1);
+                    gamePosition.erase(gamePosition.end() - 1);
+                    gamePosition.erase(gamePosition.end() - 1);
+
+
+                }
+            }
+        }
+    }
+
+    gamePosition += moveNotation;
     gamePosition += " ";
     std::cout << gamePosition<< '\n';
     return true;
@@ -178,5 +224,7 @@ bool Board::makeMove(ChessPiece *chessPiece, BoardVector to) {
 const std::string &Board::getGamePosition() const {
     return gamePosition;
 }
+
+
 
 

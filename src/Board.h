@@ -40,6 +40,7 @@ public:
     bool isCheck(Color col);
     bool makeMove(ChessPiece *piece, BoardVector to);
 
+
 };
 
 

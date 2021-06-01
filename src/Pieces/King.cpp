@@ -10,12 +10,42 @@ bool King::isPossibleToMove() {
 }
 
 King::King(BoardVector position, Color color, std::string textureUrl) : ChessPiece(position, color, textureUrl) {
-
+    isFirst = true;
 }
 
 std::vector<BoardVector> King::possibleMoves(const std::vector<ChessPiece *> &pieces) {
     std::vector<BoardVector> result = King::attackingMoves(pieces);
     result.push_back(this->position);
+
+    if(isFirst && color == white) {
+        BoardVector v1 = BoardVector(6, 1);
+        BoardVector v2 = BoardVector(7, 1);
+        bool isPossibleRight = true;
+        for(int i = 0; i < pieces.size(); i++) {
+            if(pieces[i]->getPosition() == v1 || pieces[i]->getPosition() == v2) {
+                isPossibleRight = false;
+                break;
+            }
+        }
+        if(isPossibleRight) {
+            result.push_back(v2);
+        }
+    }
+    if(isFirst && color == white) {
+        BoardVector v1 = BoardVector(2, 1);
+        BoardVector v2 = BoardVector(3, 1);
+        BoardVector v3 = BoardVector(4, 1);
+        bool isPossibleLeft = true;
+        for(int i = 0; i < pieces.size(); i++) {
+            if(pieces[i]->getPosition() == v1 || pieces[i]->getPosition() == v2 || pieces[i]->getPosition() == v3) {
+                isPossibleLeft = false;
+                break;
+            }
+        }
+        if(isPossibleLeft) {
+            result.push_back(v2);
+        }
+    }
     return result;
 }
 
@@ -65,3 +95,11 @@ std::vector<BoardVector> King::attackingMoves(const std::vector<ChessPiece *> &p
 bool King::amIKing() {
     return true;
 }
+
+void King::move(BoardVector position) {
+    if ((!(position == this->position)) && isFirst) {
+        isFirst = false;
+    }
+    ChessPiece::move(position);
+}
+
