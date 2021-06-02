@@ -42,7 +42,7 @@ void GameEngine::start() {
         //engine move
         if (!isWhite) {
             string next = Connector::getNextMove(board.getGamePosition());
-            if(next.length() != 4) {
+            if (next.length() != 4) {
                 cout << "END" << endl;
                 sleep(1000);
             }

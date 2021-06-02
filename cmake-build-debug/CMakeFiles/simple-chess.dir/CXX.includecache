@@ -38,15 +38,51 @@ Data.h
 
 /home/xsan/simple-chess/src/BoardVector.h
 
+/home/xsan/simple-chess/src/ChessPiece.cpp
+iostream
+-
+ChessPiece.h
+/home/xsan/simple-chess/src/ChessPiece.h
+
 /home/xsan/simple-chess/src/ChessPiece.h
 Data.h
 /home/xsan/simple-chess/src/Data.h
 BoardVector.h
 /home/xsan/simple-chess/src/BoardVector.h
 
+/home/xsan/simple-chess/src/Connector.h
+cstdio
+-
+iostream
+-
+string
+-
+array
+-
+memory
+-
+
 /home/xsan/simple-chess/src/Data.h
 SFML/Graphics.hpp
 -
+
+/home/xsan/simple-chess/src/GameEngine.cpp
+iostream
+-
+GameEngine.h
+/home/xsan/simple-chess/src/GameEngine.h
+Board.h
+/home/xsan/simple-chess/src/Board.h
+SFML/Graphics.hpp
+-
+Data.h
+/home/xsan/simple-chess/src/Data.h
+unistd.h
+-
+Connector.h
+/home/xsan/simple-chess/src/Connector.h
+
+/home/xsan/simple-chess/src/GameEngine.h
 
 /home/xsan/simple-chess/src/Pieces/Bishop.cpp
 Bishop.h
@@ -85,6 +121,10 @@ Pawn.h
 /home/xsan/simple-chess/src/Data.h
 ../ChessPiece.h
 /home/xsan/simple-chess/src/ChessPiece.h
+
+/home/xsan/simple-chess/src/Pieces/Queen.cpp
+Queen.h
+/home/xsan/simple-chess/src/Pieces/Queen.h
 
 /home/xsan/simple-chess/src/Pieces/Queen.h
 ../ChessPiece.h

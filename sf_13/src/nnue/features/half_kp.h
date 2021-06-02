@@ -26,33 +26,33 @@
 
 namespace Eval::NNUE::Features {
 
-  // Feature HalfKP: Combination of the position of own king
-  // and the position of pieces other than kings
-  template <Side AssociatedKing>
-  class HalfKP {
+    // Feature HalfKP: Combination of the position of own king
+    // and the position of pieces other than kings
+    template<Side AssociatedKing>
+    class HalfKP {
 
-   public:
-    // Feature name
-    static constexpr const char* kName = "HalfKP(Friend)";
-    // Hash value embedded in the evaluation file
-    static constexpr std::uint32_t kHashValue =
-        0x5D69D5B9u ^ (AssociatedKing == Side::kFriend);
-    // Number of feature dimensions
-    static constexpr IndexType kDimensions =
-        static_cast<IndexType>(SQUARE_NB) * static_cast<IndexType>(PS_END);
-    // Maximum number of simultaneously active features
-    static constexpr IndexType kMaxActiveDimensions = 30; // Kings don't count
-    // Trigger for full calculation instead of difference calculation
-    static constexpr TriggerEvent kRefreshTrigger = TriggerEvent::kFriendKingMoved;
+    public:
+        // Feature name
+        static constexpr const char *kName = "HalfKP(Friend)";
+        // Hash value embedded in the evaluation file
+        static constexpr std::uint32_t kHashValue =
+                0x5D69D5B9u ^(AssociatedKing == Side::kFriend);
+        // Number of feature dimensions
+        static constexpr IndexType kDimensions =
+                static_cast<IndexType>(SQUARE_NB) * static_cast<IndexType>(PS_END);
+        // Maximum number of simultaneously active features
+        static constexpr IndexType kMaxActiveDimensions = 30; // Kings don't count
+        // Trigger for full calculation instead of difference calculation
+        static constexpr TriggerEvent kRefreshTrigger = TriggerEvent::kFriendKingMoved;
 
-    // Get a list of indices for active features
-    static void AppendActiveIndices(const Position& pos, Color perspective,
-                                    IndexList* active);
+        // Get a list of indices for active features
+        static void AppendActiveIndices(const Position &pos, Color perspective,
+                                        IndexList *active);
 
-    // Get a list of indices for recently changed features
-    static void AppendChangedIndices(const Position& pos, const DirtyPiece& dp, Color perspective,
-                                     IndexList* removed, IndexList* added);
-  };
+        // Get a list of indices for recently changed features
+        static void AppendChangedIndices(const Position &pos, const DirtyPiece &dp, Color perspective,
+                                         IndexList *removed, IndexList *added);
+    };
 
 }  // namespace Eval::NNUE::Features
 

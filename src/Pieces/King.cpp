@@ -17,32 +17,32 @@ std::vector<BoardVector> King::possibleMoves(const std::vector<ChessPiece *> &pi
     std::vector<BoardVector> result = King::attackingMoves(pieces);
     result.push_back(this->position);
 
-    if(isFirst && color == white) {
+    if (isFirst && color == white) {
         BoardVector v1 = BoardVector(6, 1);
         BoardVector v2 = BoardVector(7, 1);
         bool isPossibleRight = true;
-        for(int i = 0; i < pieces.size(); i++) {
-            if(pieces[i]->getPosition() == v1 || pieces[i]->getPosition() == v2) {
+        for (int i = 0; i < pieces.size(); i++) {
+            if (pieces[i]->getPosition() == v1 || pieces[i]->getPosition() == v2) {
                 isPossibleRight = false;
                 break;
             }
         }
-        if(isPossibleRight) {
+        if (isPossibleRight) {
             result.push_back(v2);
         }
     }
-    if(isFirst && color == white) {
+    if (isFirst && color == white) {
         BoardVector v1 = BoardVector(2, 1);
         BoardVector v2 = BoardVector(3, 1);
         BoardVector v3 = BoardVector(4, 1);
         bool isPossibleLeft = true;
-        for(int i = 0; i < pieces.size(); i++) {
-            if(pieces[i]->getPosition() == v1 || pieces[i]->getPosition() == v2 || pieces[i]->getPosition() == v3) {
+        for (int i = 0; i < pieces.size(); i++) {
+            if (pieces[i]->getPosition() == v1 || pieces[i]->getPosition() == v2 || pieces[i]->getPosition() == v3) {
                 isPossibleLeft = false;
                 break;
             }
         }
-        if(isPossibleLeft) {
+        if (isPossibleLeft) {
             result.push_back(v2);
         }
     }

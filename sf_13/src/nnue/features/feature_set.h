@@ -26,43 +26,44 @@
 
 namespace Eval::NNUE::Features {
 
-  // Class template that represents a list of values
-  template <typename T, T... Values>
-  struct CompileTimeList;
+    // Class template that represents a list of values
+    template<typename T, T... Values>
+    struct CompileTimeList;
 
-  template <typename T, T First, T... Remaining>
-  struct CompileTimeList<T, First, Remaining...> {
-    static constexpr bool Contains(T value) {
-      return value == First || CompileTimeList<T, Remaining...>::Contains(value);
-    }
-    static constexpr std::array<T, sizeof...(Remaining) + 1>
-        kValues = {{First, Remaining...}};
-  };
+    template<typename T, T First, T... Remaining>
+    struct CompileTimeList<T, First, Remaining...> {
+        static constexpr bool Contains(T value) {
+            return value == First || CompileTimeList<T, Remaining...>::Contains(value);
+        }
 
-  // Base class of feature set
-  template <typename Derived>
-  class FeatureSetBase {
+        static constexpr std::array<T, sizeof...(Remaining) + 1>
+                kValues = {{First, Remaining...}};
+    };
 
-  };
+    // Base class of feature set
+    template<typename Derived>
+    class FeatureSetBase {
 
-  // Class template that represents the feature set
-  template <typename FeatureType>
-  class FeatureSet<FeatureType> : public FeatureSetBase<FeatureSet<FeatureType>> {
+    };
 
-   public:
-    // Hash value embedded in the evaluation file
-    static constexpr std::uint32_t kHashValue = FeatureType::kHashValue;
-    // Number of feature dimensions
-    static constexpr IndexType kDimensions = FeatureType::kDimensions;
-    // Maximum number of simultaneously active features
-    static constexpr IndexType kMaxActiveDimensions =
-        FeatureType::kMaxActiveDimensions;
-    // Trigger for full calculation instead of difference calculation
-    using SortedTriggerSet =
+    // Class template that represents the feature set
+    template<typename FeatureType>
+    class FeatureSet<FeatureType> : public FeatureSetBase<FeatureSet<FeatureType>> {
+
+    public:
+        // Hash value embedded in the evaluation file
+        static constexpr std::uint32_t kHashValue = FeatureType::kHashValue;
+        // Number of feature dimensions
+        static constexpr IndexType kDimensions = FeatureType::kDimensions;
+        // Maximum number of simultaneously active features
+        static constexpr IndexType kMaxActiveDimensions =
+                FeatureType::kMaxActiveDimensions;
+        // Trigger for full calculation instead of difference calculation
+        using SortedTriggerSet =
         CompileTimeList<TriggerEvent, FeatureType::kRefreshTrigger>;
-    static constexpr auto kRefreshTriggers = SortedTriggerSet::kValues;
+        static constexpr auto kRefreshTriggers = SortedTriggerSet::kValues;
 
-  };
+    };
 
 }  // namespace Eval::NNUE::Features
 

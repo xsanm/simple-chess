@@ -33,15 +33,17 @@ ChessPiece::ChessPiece(BoardVector position, Color color, std::string textureURL
     this->t1.loadFromFile(textureURL);
     sPiece = sf::Sprite(this->t1);
     sPiece.setScale(sf::Vector2f(0.4, 0.4));
-    sPiece.setPosition(SquareSize * (position.getX() - 1) + SquareOffset + 3, SquareSize * (8 - position.getY()) + SquareOffset);
+    sPiece.setPosition(SquareSize * (position.getX() - 1) + SquareOffset + 3,
+                       SquareSize * (8 - position.getY()) + SquareOffset);
 }
 
 std::vector<BoardVector> ChessPiece::possibleMoves(const std::vector<ChessPiece *> &pieces) {
     return std::vector<BoardVector>();
 }
 
-int ChessPiece::checkSquare(const std::vector<ChessPiece *> &pieces, BoardVector possibility, Color color) { //0 no, 1 free, 2 beat
-    if(!possibility.isOnBoardd()) return 0;
+int ChessPiece::checkSquare(const std::vector<ChessPiece *> &pieces, BoardVector possibility,
+                            Color color) { //0 no, 1 free, 2 beat
+    if (!possibility.isOnBoardd()) return 0;
     for (int j = 0; j < pieces.size(); j++) {
         if (pieces[j]->getPosition() == possibility) {
             if (pieces[j]->getColor() == color) return 0;

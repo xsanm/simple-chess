@@ -23,46 +23,47 @@
 
 namespace Eval::NNUE::Features {
 
-  // Orient a square according to perspective (rotates by 180 for black)
-  inline Square orient(Color perspective, Square s) {
-    return Square(int(s) ^ (bool(perspective) * 63));
-  }
-
-  // Index of a feature for a given king position and another piece on some square
-  inline IndexType make_index(Color perspective, Square s, Piece pc, Square ksq) {
-    return IndexType(orient(perspective, s) + kpp_board_index[perspective][pc] + PS_END * ksq);
-  }
-
-  // Get a list of indices for active features
-  template <Side AssociatedKing>
-  void HalfKP<AssociatedKing>::AppendActiveIndices(
-      const Position& pos, Color perspective, IndexList* active) {
-
-    Square ksq = orient(perspective, pos.square<KING>(perspective));
-    Bitboard bb = pos.pieces() & ~pos.pieces(KING);
-    while (bb) {
-      Square s = pop_lsb(&bb);
-      active->push_back(make_index(perspective, s, pos.piece_on(s), ksq));
+    // Orient a square according to perspective (rotates by 180 for black)
+    inline Square orient(Color perspective, Square s) {
+        return Square(int(s) ^ (bool(perspective) * 63));
     }
-  }
 
-  // Get a list of indices for recently changed features
-  template <Side AssociatedKing>
-  void HalfKP<AssociatedKing>::AppendChangedIndices(
-      const Position& pos, const DirtyPiece& dp, Color perspective,
-      IndexList* removed, IndexList* added) {
-
-    Square ksq = orient(perspective, pos.square<KING>(perspective));
-    for (int i = 0; i < dp.dirty_num; ++i) {
-      Piece pc = dp.piece[i];
-      if (type_of(pc) == KING) continue;
-      if (dp.from[i] != SQ_NONE)
-        removed->push_back(make_index(perspective, dp.from[i], pc, ksq));
-      if (dp.to[i] != SQ_NONE)
-        added->push_back(make_index(perspective, dp.to[i], pc, ksq));
+    // Index of a feature for a given king position and another piece on some square
+    inline IndexType make_index(Color perspective, Square s, Piece pc, Square ksq) {
+        return IndexType(orient(perspective, s) + kpp_board_index[perspective][pc] + PS_END * ksq);
     }
-  }
 
-  template class HalfKP<Side::kFriend>;
+    // Get a list of indices for active features
+    template<Side AssociatedKing>
+    void HalfKP<AssociatedKing>::AppendActiveIndices(
+            const Position &pos, Color perspective, IndexList *active) {
+
+        Square ksq = orient(perspective, pos.square<KING>(perspective));
+        Bitboard bb = pos.pieces() & ~pos.pieces(KING);
+        while (bb) {
+            Square s = pop_lsb(&bb);
+            active->push_back(make_index(perspective, s, pos.piece_on(s), ksq));
+        }
+    }
+
+    // Get a list of indices for recently changed features
+    template<Side AssociatedKing>
+    void HalfKP<AssociatedKing>::AppendChangedIndices(
+            const Position &pos, const DirtyPiece &dp, Color perspective,
+            IndexList *removed, IndexList *added) {
+
+        Square ksq = orient(perspective, pos.square<KING>(perspective));
+        for (int i = 0; i < dp.dirty_num; ++i) {
+            Piece pc = dp.piece[i];
+            if (type_of(pc) == KING) continue;
+            if (dp.from[i] != SQ_NONE)
+                removed->push_back(make_index(perspective, dp.from[i], pc, ksq));
+            if (dp.to[i] != SQ_NONE)
+                added->push_back(make_index(perspective, dp.to[i], pc, ksq));
+        }
+    }
+
+    template
+    class HalfKP<Side::kFriend>;
 
 }  // namespace Eval::NNUE::Features

@@ -31,114 +31,114 @@
 
 namespace Eval::NNUE {
 
-  // Input feature converter
-  LargePagePtr<FeatureTransformer> feature_transformer;
+    // Input feature converter
+    LargePagePtr<FeatureTransformer> feature_transformer;
 
-  // Evaluation function
-  AlignedPtr<Network> network;
+    // Evaluation function
+    AlignedPtr<Network> network;
 
-  // Evaluation function file name
-  std::string fileName;
+    // Evaluation function file name
+    std::string fileName;
 
-  namespace Detail {
+    namespace Detail {
 
-  // Initialize the evaluation function parameters
-  template <typename T>
-  void Initialize(AlignedPtr<T>& pointer) {
+        // Initialize the evaluation function parameters
+        template<typename T>
+        void Initialize(AlignedPtr<T> &pointer) {
 
-    pointer.reset(reinterpret_cast<T*>(std_aligned_alloc(alignof(T), sizeof(T))));
-    std::memset(pointer.get(), 0, sizeof(T));
-  }
+            pointer.reset(reinterpret_cast<T *>(std_aligned_alloc(alignof(T), sizeof(T))));
+            std::memset(pointer.get(), 0, sizeof(T));
+        }
 
-  template <typename T>
-  void Initialize(LargePagePtr<T>& pointer) {
+        template<typename T>
+        void Initialize(LargePagePtr<T> &pointer) {
 
-    static_assert(alignof(T) <= 4096, "aligned_large_pages_alloc() may fail for such a big alignment requirement of T");
-    pointer.reset(reinterpret_cast<T*>(aligned_large_pages_alloc(sizeof(T))));
-    std::memset(pointer.get(), 0, sizeof(T));
-  }
+            static_assert(alignof(T) <= 4096,
+                          "aligned_large_pages_alloc() may fail for such a big alignment requirement of T");
+            pointer.reset(reinterpret_cast<T *>(aligned_large_pages_alloc(sizeof(T))));
+            std::memset(pointer.get(), 0, sizeof(T));
+        }
 
-  // Read evaluation function parameters
-  template <typename T>
-  bool ReadParameters(std::istream& stream, T& reference) {
+        // Read evaluation function parameters
+        template<typename T>
+        bool ReadParameters(std::istream &stream, T &reference) {
 
-    std::uint32_t header;
-    header = read_little_endian<std::uint32_t>(stream);
-    if (!stream || header != T::GetHashValue()) return false;
-    return reference.ReadParameters(stream);
-  }
+            std::uint32_t header;
+            header = read_little_endian<std::uint32_t>(stream);
+            if (!stream || header != T::GetHashValue()) return false;
+            return reference.ReadParameters(stream);
+        }
 
-  }  // namespace Detail
+    }  // namespace Detail
 
-  // Initialize the evaluation function parameters
-  void Initialize() {
+    // Initialize the evaluation function parameters
+    void Initialize() {
 
-    Detail::Initialize(feature_transformer);
-    Detail::Initialize(network);
-  }
+        Detail::Initialize(feature_transformer);
+        Detail::Initialize(network);
+    }
 
-  // Read network header
-  bool ReadHeader(std::istream& stream, std::uint32_t* hash_value, std::string* architecture)
-  {
-    std::uint32_t version, size;
+    // Read network header
+    bool ReadHeader(std::istream &stream, std::uint32_t *hash_value, std::string *architecture) {
+        std::uint32_t version, size;
 
-    version     = read_little_endian<std::uint32_t>(stream);
-    *hash_value = read_little_endian<std::uint32_t>(stream);
-    size        = read_little_endian<std::uint32_t>(stream);
-    if (!stream || version != kVersion) return false;
-    architecture->resize(size);
-    stream.read(&(*architecture)[0], size);
-    return !stream.fail();
-  }
+        version = read_little_endian<std::uint32_t>(stream);
+        *hash_value = read_little_endian<std::uint32_t>(stream);
+        size = read_little_endian<std::uint32_t>(stream);
+        if (!stream || version != kVersion) return false;
+        architecture->resize(size);
+        stream.read(&(*architecture)[0], size);
+        return !stream.fail();
+    }
 
-  // Read network parameters
-  bool ReadParameters(std::istream& stream) {
+    // Read network parameters
+    bool ReadParameters(std::istream &stream) {
 
-    std::uint32_t hash_value;
-    std::string architecture;
-    if (!ReadHeader(stream, &hash_value, &architecture)) return false;
-    if (hash_value != kHashValue) return false;
-    if (!Detail::ReadParameters(stream, *feature_transformer)) return false;
-    if (!Detail::ReadParameters(stream, *network)) return false;
-    return stream && stream.peek() == std::ios::traits_type::eof();
-  }
+        std::uint32_t hash_value;
+        std::string architecture;
+        if (!ReadHeader(stream, &hash_value, &architecture)) return false;
+        if (hash_value != kHashValue) return false;
+        if (!Detail::ReadParameters(stream, *feature_transformer)) return false;
+        if (!Detail::ReadParameters(stream, *network)) return false;
+        return stream && stream.peek() == std::ios::traits_type::eof();
+    }
 
-  // Evaluation function. Perform differential calculation.
-  Value evaluate(const Position& pos) {
+    // Evaluation function. Perform differential calculation.
+    Value evaluate(const Position &pos) {
 
-    // We manually align the arrays on the stack because with gcc < 9.3
-    // overaligning stack variables with alignas() doesn't work correctly.
+        // We manually align the arrays on the stack because with gcc < 9.3
+        // overaligning stack variables with alignas() doesn't work correctly.
 
-    constexpr uint64_t alignment = kCacheLineSize;
+        constexpr uint64_t alignment = kCacheLineSize;
 
 #if defined(ALIGNAS_ON_STACK_VARIABLES_BROKEN)
-    TransformedFeatureType transformed_features_unaligned[
-      FeatureTransformer::kBufferSize + alignment / sizeof(TransformedFeatureType)];
-    char buffer_unaligned[Network::kBufferSize + alignment];
+        TransformedFeatureType transformed_features_unaligned[
+          FeatureTransformer::kBufferSize + alignment / sizeof(TransformedFeatureType)];
+        char buffer_unaligned[Network::kBufferSize + alignment];
 
-    auto* transformed_features = align_ptr_up<alignment>(&transformed_features_unaligned[0]);
-    auto* buffer = align_ptr_up<alignment>(&buffer_unaligned[0]);
+        auto* transformed_features = align_ptr_up<alignment>(&transformed_features_unaligned[0]);
+        auto* buffer = align_ptr_up<alignment>(&buffer_unaligned[0]);
 #else
-    alignas(alignment)
-      TransformedFeatureType transformed_features[FeatureTransformer::kBufferSize];
-    alignas(alignment) char buffer[Network::kBufferSize];
+        alignas(alignment)
+        TransformedFeatureType transformed_features[FeatureTransformer::kBufferSize];
+        alignas(alignment) char buffer[Network::kBufferSize];
 #endif
 
-    ASSERT_ALIGNED(transformed_features, alignment);
-    ASSERT_ALIGNED(buffer, alignment);
+        ASSERT_ALIGNED(transformed_features, alignment);
+        ASSERT_ALIGNED(buffer, alignment);
 
-    feature_transformer->Transform(pos, transformed_features);
-    const auto output = network->Propagate(transformed_features, buffer);
+        feature_transformer->Transform(pos, transformed_features);
+        const auto output = network->Propagate(transformed_features, buffer);
 
-    return static_cast<Value>(output[0] / FV_SCALE);
-  }
+        return static_cast<Value>(output[0] / FV_SCALE);
+    }
 
-  // Load eval, from a file stream or a memory stream
-  bool load_eval(std::string name, std::istream& stream) {
+    // Load eval, from a file stream or a memory stream
+    bool load_eval(std::string name, std::istream &stream) {
 
-    Initialize();
-    fileName = name;
-    return ReadParameters(stream);
-  }
+        Initialize();
+        fileName = name;
+        return ReadParameters(stream);
+    }
 
 } // namespace Eval::NNUE
