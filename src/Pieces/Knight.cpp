@@ -23,25 +23,25 @@ std::vector<BoardVector> Knight::attackingMoves(const std::vector<ChessPiece *> 
 
     int y = position.getY();
     int x = position.getX();
-    std::vector<BoardVector> possibilties;
-    possibilties.push_back(BoardVector(x + 1, y + 2));
-    possibilties.push_back(BoardVector(x + 1, y - 2));
-    possibilties.push_back(BoardVector(x - 1, y + 2));
-    possibilties.push_back(BoardVector(x - 1, y - 2));
-    possibilties.push_back(BoardVector(x + 2, y + 1));
-    possibilties.push_back(BoardVector(x + 2, y - 1));
-    possibilties.push_back(BoardVector(x - 2, y + 1));
-    possibilties.push_back(BoardVector(x - 2, y - 1));
+    std::vector<BoardVector> possibilities;
+    possibilities.push_back(BoardVector(x + 1, y + 2));
+    possibilities.push_back(BoardVector(x + 1, y - 2));
+    possibilities.push_back(BoardVector(x - 1, y + 2));
+    possibilities.push_back(BoardVector(x - 1, y - 2));
+    possibilities.push_back(BoardVector(x + 2, y + 1));
+    possibilities.push_back(BoardVector(x + 2, y - 1));
+    possibilities.push_back(BoardVector(x - 2, y + 1));
+    possibilities.push_back(BoardVector(x - 2, y - 1));
 
-    for (int i = 0; i < possibilties.size(); i++) if(possibilties[i].isOnBoardd()){
+    for (int i = 0; i < possibilities.size(); i++) if(possibilities[i].isOnBoardd()){
             bool canMove = true;
             for (int j = 0; j < pieces.size(); j++){
-                if (pieces[j]->getPosition() == possibilties[i]) {
+                if (pieces[j]->getPosition() == possibilities[i]) {
                     if (pieces[j]->getColor() == color) canMove = false;
                 }
             }
             if (canMove) {
-                result.push_back(possibilties[i]);
+                result.push_back(possibilities[i]);
             }
         }
 

@@ -47,20 +47,38 @@ BoardVector.h
 /home/xsan/simple-chess/src/Data.h
 SFML/Graphics.hpp
 -
-map
--
+
+/home/xsan/simple-chess/src/Pieces/Bishop.cpp
+Bishop.h
+/home/xsan/simple-chess/src/Pieces/Bishop.h
 
 /home/xsan/simple-chess/src/Pieces/Bishop.h
 ../ChessPiece.h
 /home/xsan/simple-chess/src/ChessPiece.h
 
+/home/xsan/simple-chess/src/Pieces/King.cpp
+iostream
+-
+King.h
+/home/xsan/simple-chess/src/Pieces/King.h
+
 /home/xsan/simple-chess/src/Pieces/King.h
 ../ChessPiece.h
 /home/xsan/simple-chess/src/ChessPiece.h
 
+/home/xsan/simple-chess/src/Pieces/Knight.cpp
+Knight.h
+/home/xsan/simple-chess/src/Pieces/Knight.h
+
 /home/xsan/simple-chess/src/Pieces/Knight.h
 ../ChessPiece.h
 /home/xsan/simple-chess/src/ChessPiece.h
+
+/home/xsan/simple-chess/src/Pieces/Pawn.cpp
+iostream
+-
+Pawn.h
+/home/xsan/simple-chess/src/Pieces/Pawn.h
 
 /home/xsan/simple-chess/src/Pieces/Pawn.h
 ../Data.h
@@ -71,6 +89,10 @@ map
 /home/xsan/simple-chess/src/Pieces/Queen.h
 ../ChessPiece.h
 /home/xsan/simple-chess/src/ChessPiece.h
+
+/home/xsan/simple-chess/src/Pieces/Rook.cpp
+Rook.h
+/home/xsan/simple-chess/src/Pieces/Rook.h
 
 /home/xsan/simple-chess/src/Pieces/Rook.h
 ../ChessPiece.h

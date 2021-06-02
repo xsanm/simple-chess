@@ -9,19 +9,23 @@
 class BoardVector {
 private:
     int x;
+    int y;
+
 public:
     int getX() const;
 
     int getY() const;
 
-private:
-    int y;
-public:
     BoardVector(int x, int y);
+
     BoardVector(char x, int y);
+
     bool isOnBoardd();
+
     BoardVector();
-    friend bool operator==(const BoardVector& a, const BoardVector& b);
+
+    friend bool operator==(const BoardVector &a, const BoardVector &b);
+
     std::string toString() const;
 };
 

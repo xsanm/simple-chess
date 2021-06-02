@@ -3,30 +3,24 @@
 //
 
 #include <unistd.h>
-#include <csignal>
-#include <sys/wait.h>
-#include <cstring>
 #include <fstream>
 #include "Connector.h"
 
 std::string Connector::getNextMove(std::string position) {
     std::ofstream myfile;
-    myfile.open ("tmp.txt");
+    myfile.open("tmp.txt");
     myfile << "position startpos moves " + position + '\n';
     myfile << "go\n";
-    for(int i = 0; i < 500; i++) {
+    for (int i = 0; i < 500; i++) {
         myfile << "\n";
     }
     myfile.close();
 
-std::string str = " ./stockfish_13_linux_x64_avx2 < tmp.txt";
-//
-//    position = "printf \"position startpos moves " + position + "\ngo\" | stockfish";
-    const char *c = str.c_str();
-    //popen(c, "r");
-    //popen("stockfish go movetime 400", "r");
+    std::string str = " ./stockfish_13_linux_x64_avx2 < tmp.txt";
 
-    std::array<char, 128> buffer;
+    const char *c = str.c_str();
+
+    std::array<char, 1024> buffer;
     std::string result;
     std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(c, "r"), pclose);
     sleep(0.5);

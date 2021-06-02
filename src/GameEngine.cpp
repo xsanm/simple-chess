@@ -7,97 +7,78 @@
 #include "Board.h"
 #include <SFML/Graphics.hpp>
 #include "Data.h"
+#include <unistd.h>
 #include "Connector.h"
 
 using namespace sf;
 using namespace std;
 
 void GameEngine::start() {
-
     Board board = Board();
     board.generateBoard();
     board.generatePieces();
+
     vector<BoardVector> availablePositions;
     bool isWhite = true;
-
     Texture t;
     t.loadFromFile("images/backgorund.png");
     Sprite s = Sprite(t);
     s.setScale(Vector2f(0.987, 0.987));
 
-
-    std::vector<ChessPiece *> &pieces = board.getPieces();
-//    for(int i = 0; i < pieces.size(); i++) {
-//        std::cout << pieces[i]->getPosition().getX() << " " << pieces[i]->getPosition().getY() << '\n';
-//    }
+    vector<ChessPiece *> &pieces = board.getPieces();
 
 
-    Vector2f offset(0,0);
     float dx = 0, dy = 0;
     bool isMove = false;
     int size = 64;
     Vector2f oldPos, newPos;
     ChessPiece *toMove = nullptr;
 
-    std::cout << "Game Starting" << std::endl;
-    sf::RenderWindow window(sf::VideoMode(560, 560), "Simple chess");
+    cout << "Game Starting" << endl;
+    RenderWindow window(VideoMode(560, 560), "Simple chess");
 
-    window.draw(s);
-    window.display();
+    //while game
     while (window.isOpen()) {
-
-        if(!isWhite) {
-
+        //engine move
+        if (!isWhite) {
             string next = Connector::getNextMove(board.getGamePosition());
-            cout << "Next best " << next << endl;
-            BoardVector from = BoardVector(int(next[0] - 'a' + 1), next[1]-'0');
-            BoardVector to = BoardVector(int(next[2] - 'a' + 1), next[3] - '0');
-            cout << "From -> to " << from.toString() << " " << to.toString() << endl;
-            for(int i = 0; i < pieces.size(); i++) {
-                if(pieces[i]->amIKing()) {
-                    cout << "King " << pieces[i]->getPosition().toString() << endl;
-                }
+            if(next.length() != 4) {
+                cout << "END" << endl;
+                sleep(1000);
             }
-            for(int i = 0; i < pieces.size(); i++) {
-                if(pieces[i]->getPosition() == from) {
+            //cout << "Next best " << next << endl;
+            BoardVector from = BoardVector(int(next[0] - 'a' + 1), next[1] - '0');
+            BoardVector to = BoardVector(int(next[2] - 'a' + 1), next[3] - '0');
+            //cout << "From -> to " << from.toString() << " " << to.toString() << endl;
+
+            for (int i = 0; i < pieces.size(); i++) {
+                if (pieces[i]->getPosition() == from) {
                     ChessPiece *tmpPiece = pieces[i];
-                    cout << pieces.size() << endl;
 
-
-
-                    Vector2f p = tmpPiece->getSPiece().getPosition() + Vector2f(SquareSize / 2, SquareSize / 2);
-                    newPos = Vector2f(SquareSize * (to.getX() - 1) + SquareOffset + 3, SquareSize * (8 - to.getY()) + SquareOffset);
+                    newPos = Vector2f(SquareSize * (to.getX() - 1) + SquareOffset + 3,
+                                      SquareSize * (8 - to.getY()) + SquareOffset);
                     board.makeMove(tmpPiece, to);
                     tmpPiece->getSPiece().setPosition(newPos);
                     isWhite = !isWhite;
-                    break;
-                    //isMove = true;
                 }
             }
-
         }
 
-        Vector2i pos = Mouse::getPosition(window) - Vector2i(offset);
+        Vector2i pos = Mouse::getPosition(window);
         Event e;
         while (window.pollEvent(e)) {
             if (e.type == Event::Closed)
                 window.close();
 
-
-
-            //drag and drop
+            //drag piece
             if (e.type == Event::MouseButtonPressed)
                 if (e.key.code == Mouse::Left) {
-//                    vector<BoardVector> vec;
-//                    vec.push_back(BoardVector(1, 1));
-//                    vec.push_back(BoardVector(2, 1));
-//                    vec.push_back(BoardVector(4, 4));
-                    //board.generateBoard(vec);
 
                     for (int i = 0; i < pieces.size(); i++) {
                         Sprite f = pieces[i]->getSPiece();
                         if (f.getGlobalBounds().contains(pos.x, pos.y)) {
-                            if(isWhite && pieces[i]->getColor() != white || !isWhite && pieces[i]->getColor() != black) {
+                            if (isWhite && pieces[i]->getColor() != white ||
+                                !isWhite && pieces[i]->getColor() != black) {
                                 isMove = false;
                                 continue;
                             }
@@ -107,107 +88,61 @@ void GameEngine::start() {
                             dy = pos.y - f.getPosition().y;
                             oldPos = f.getPosition();
                             availablePositions = pieces[i]->possibleMoves(pieces);
-                            //std::cout << vec[0].getX() << " " << vec[0].getY() << '\n';
-
-
                             board.generateBoard(availablePositions);
                         }
                     }
-                    // const vector<Sprite> &boardSquares = board.getBoardTextures();
-                    //std::cout << toMove->getPosition().getX() << ' ' <<  toMove->getPosition().getY() << endl;
-//                    for (int i = 0; i < boardSquares.size(); i++) {
-//                        window.draw(boardSquares[i]);
-//                    }
-//                    window.display();
-
                 }
-
+            //drop piece
             if (e.type == Event::MouseButtonReleased) {
                 if (e.key.code == Mouse::Left) {
                     Vector2f p = toMove->getSPiece().getPosition() + Vector2f(SquareSize / 2, SquareSize / 2);
-                    newPos = Vector2f(SquareSize * int(p.x / SquareSize) + SquareOffset + 3, SquareSize * int(p.y / SquareSize) + SquareOffset);
+                    newPos = Vector2f(SquareSize * int(p.x / SquareSize) + SquareOffset + 3,
+                                      SquareSize * int(p.y / SquareSize) + SquareOffset);
 
-                    BoardVector newPosition = BoardVector((int)((newPos.x - 11) / size + 1), 8 - (newPos.y - SquareOffset) / size);
-                    BoardVector oldPosition = toMove->getPosition();
+                    BoardVector newPosition = BoardVector((int) ((newPos.x - 11) / size + 1),
+                                                          8 - (newPos.y - SquareOffset) / size);
 
-                    //std::cout << (newPos.x - 11) / size << '\n';
-                    //toMove->move(newPosition);
-                    if(!isMove) continue;
+                    if (!isMove) continue;
                     bool isPossible = false;
-                    for(int i = 0; i < availablePositions.size(); i++) {
-                        if(availablePositions[i] == newPosition) {
+                    for (int i = 0; i < availablePositions.size(); i++) {
+                        if (availablePositions[i] == newPosition) {
                             isPossible = true;
                         }
                     }
-                    if(!isPossible) {
+                    if (!isPossible) {
                         isMove = false;
                         toMove->getSPiece().setPosition(oldPos);
                         continue;
                     }
 
-                    if(board.makeMove(toMove, newPosition)) {
+                    if (board.makeMove(toMove, newPosition)) {
                         toMove->getSPiece().setPosition(newPos);
                         isWhite = !isWhite;
                         //pieces = board.getPieces();
-                        cout<< Connector::getNextMove(board.getGamePosition()) << endl;
-                        cout << "robie ruch\n";
+                        cout << Connector::getNextMove(board.getGamePosition()) << endl;
                     } else {
                         toMove->getSPiece().setPosition(oldPos);
-                        cout << "nie robie i chuj\n";
                     }
 
-                    if (isMove) {
-                        board.generateBoard();
-                   }
+                    board.generateBoard();
                     isMove = false;
-
-//                    toMove->move(newPosition);
-//                    if (isMove) {
-//                        board.generateBoard();
-//                    }
-//                    isMove = false;
-//
-//
-//                    toMove->getSPiece().setPosition(newPos);
-//
-//                    if(isWhite && board.isCheck(white) || !isWhite && board.isCheck(black)) {
-//                        toMove->getSPiece().setPosition(oldPos);
-//                        toMove->move(oldPosition);
-//                        continue;
-//                    }
-//
-//
-//                    if(!(newPosition == oldPosition))isWhite = !isWhite;
-//
-//                    cout << board.isCheck(white) << endl;
-
                 }
             }
-
         }
-
-
-        if (Keyboard::isKeyPressed(Keyboard::Space)) {
-
-        }
-
 
         if (isMove)
             toMove->getSPiece().setPosition(pos.x - dx, pos.y - dy);
 
+        //draw graphics
         window.clear();
         window.draw(s);
         const vector<Sprite> &boardSquares = board.getBoardTextures();
         for (int i = 0; i < boardSquares.size(); i++) {
             window.draw(boardSquares[i]);
         }
-        //window.draw(board.getSBoard());
-        //std::cout << pieces.size() << std::endl;
         for (int i = 0; i < pieces.size(); i++) {
             window.draw(pieces[i]->getSPiece());
         }
-        //if(toMove != nullptr) window.draw(toMove->getSPiece());
-
         window.display();
     }
 }

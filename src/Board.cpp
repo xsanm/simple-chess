@@ -21,10 +21,6 @@ Board::Board() {
     lightSquarePossible.loadFromFile("images/square brown light_png_128px_possible.png");
 }
 
-const sf::Sprite &Board::getSBoard() const {
-    return sBoard;
-}
-
 void Board::generateBoard() {
     boardTextures.clear();
     bool isDark = true;
@@ -33,10 +29,8 @@ void Board::generateBoard() {
             sf::Sprite sp;
             if (isDark) {
                 sp = sf::Sprite(darkSquare);
-                squareColors[i][j] = black;
             } else {
                 sp = sf::Sprite(lightSquare);
-                squareColors[i][j] = white;
             }
             sp.setScale(sf::Vector2f(0.5, 0.5));
             sp.setPosition(SquareSize * j, SquareSize * i);
@@ -95,9 +89,6 @@ void Board::generatePieces() {
     pieces.push_back(queen1);
     pieces.push_back(queen2);
 
-//    for (int i = 0; i < pieces.size(); i++) {
-//        std::cout << pieces[i]->getPosition().getX() << " " << pieces[i]->getPosition().getY() << '\n';
-//    }
 }
 
 std::vector<ChessPiece *> &Board::getPieces() {
@@ -111,12 +102,8 @@ const std::vector<sf::Sprite> &Board::getBoardTextures() const {
 void Board::generateBoard(const std::vector<BoardVector> &possible) {
     for (int i = 0; i < possible.size(); i++) {
         int col = ((possible[i].getY() - 1) * 8) + possible[i].getX() - 1;
-        //std::cout << possible[i].getX() << ' ' << possible[i].getY() <<' ' << col << std::endl;
-
         boardTextures[col].setTexture(lightSquarePossible);
-
     }
-
 }
 
 bool Board::isCheck(Color col) {
@@ -142,7 +129,6 @@ bool Board::isCheck(Color col) {
             }
         }
     }
-
     return false;
 }
 
@@ -154,16 +140,16 @@ bool Board::makeMove(ChessPiece *chessPiece, BoardVector to) {
     BoardVector from = chessPiece->getPosition();
     ChessPiece *captured = nullptr;
     for (int i = 0; i < pieces.size(); i++) {
-        if(pieces[i]->getPosition() == to) {
-            captured= pieces[i];
+        if (pieces[i]->getPosition() == to) {
+            captured = pieces[i];
             pieces.erase(pieces.begin() + i);
             break;
         }
     }
     chessPiece->move(to);
 
-    if(isCheck(chessPiece->getColor())) {
-        if(captured != nullptr) pieces.push_back(captured);
+    if (isCheck(chessPiece->getColor())) {
+        if (captured != nullptr) pieces.push_back(captured);
         chessPiece->move(from);
         return false;
     }
@@ -172,44 +158,42 @@ bool Board::makeMove(ChessPiece *chessPiece, BoardVector to) {
     moveNotation += from.toString();
     moveNotation += to.toString();
 
-    if(chessPiece->amIKing()) {
+    if (chessPiece->amIKing()) {
         bool isCastle = false;
         BoardVector rookFrom;
         BoardVector rookTo;
         ChessPiece *rook;
-        if(moveNotation == "e1g1") {
+        if (moveNotation == "e1g1") {
             rookFrom = BoardVector(8, 1);
             rookTo = BoardVector(6, 1);
             isCastle = true;
-        } else if(moveNotation == "e1c1") {
+        } else if (moveNotation == "e1c1") {
             rookFrom = BoardVector(1, 1);
             rookTo = BoardVector(4, 1);
             isCastle = true;
-        } else if(moveNotation == "e8g8") {
+        } else if (moveNotation == "e8g8") {
             rookFrom = BoardVector(8, 8);
-            rookTo = BoardVector(6, 1);
+            rookTo = BoardVector(6, 8);
             isCastle = true;
-        } else if(moveNotation == "e8c8") {
+        } else if (moveNotation == "e8c8") {
             rookFrom = BoardVector(1, 8);
             rookTo = BoardVector(4, 8);
             isCastle = true;
         }
-        if(isCastle) {
-            for(int i = 0;i < pieces.size(); i++) {
-                if(pieces[i]->getPosition() == rookFrom) {
+        if (isCastle) {
+            for (int i = 0; i < pieces.size(); i++) {
+                if (pieces[i]->getPosition() == rookFrom) {
 
-                    sf::Vector2f newPos = sf::Vector2f(SquareSize * (rookTo.getX() - 1) + SquareOffset + 3, SquareSize * (8 - rookTo.getY()) + SquareOffset);
+                    sf::Vector2f newPos = sf::Vector2f(SquareSize * (rookTo.getX() - 1) + SquareOffset + 3,
+                                                       SquareSize * (8 - rookTo.getY()) + SquareOffset);
                     pieces[i]->getSPiece().setPosition(newPos);
 
                     makeMove(pieces[i], rookTo);
-
                     gamePosition.erase(gamePosition.end() - 1);
                     gamePosition.erase(gamePosition.end() - 1);
                     gamePosition.erase(gamePosition.end() - 1);
                     gamePosition.erase(gamePosition.end() - 1);
                     gamePosition.erase(gamePosition.end() - 1);
-
-
                 }
             }
         }
@@ -217,7 +201,7 @@ bool Board::makeMove(ChessPiece *chessPiece, BoardVector to) {
 
     gamePosition += moveNotation;
     gamePosition += " ";
-    std::cout << gamePosition<< '\n';
+    std::cout << gamePosition << '\n';
     return true;
 }
 

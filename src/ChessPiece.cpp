@@ -9,9 +9,6 @@ const BoardVector &ChessPiece::getPosition() const {
     return position;
 }
 
-const sf::Texture &ChessPiece::getT1() const {
-    return t1;
-}
 
 Color ChessPiece::getColor() const {
     return color;
@@ -30,10 +27,6 @@ sf::Sprite &ChessPiece::getSPiece() {
     return sPiece;
 }
 
-void ChessPiece::setSPiece(const sf::Sprite &sPiece) {
-    ChessPiece::sPiece = sPiece;
-}
-
 ChessPiece::ChessPiece(BoardVector position, Color color, std::string textureURL) {
     this->position = position;
     this->color = color;
@@ -44,11 +37,8 @@ ChessPiece::ChessPiece(BoardVector position, Color color, std::string textureURL
 }
 
 std::vector<BoardVector> ChessPiece::possibleMoves(const std::vector<ChessPiece *> &pieces) {
-    //std::cout << "Hello22 ";
     return std::vector<BoardVector>();
 }
-
-
 
 int ChessPiece::checkSquare(const std::vector<ChessPiece *> &pieces, BoardVector possibility, Color color) { //0 no, 1 free, 2 beat
     if(!possibility.isOnBoardd()) return 0;

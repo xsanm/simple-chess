@@ -8,7 +8,7 @@
 #include "../Data.h"
 #include "../ChessPiece.h"
 
-class Pawn : public ChessPiece{
+class Pawn : public ChessPiece {
 private:
     bool isFirst;
 public:

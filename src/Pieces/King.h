@@ -11,10 +11,9 @@
 class King : public ChessPiece {
 private:
     bool isFirst;
-
-
 public:
     bool isPossibleToMove() override;
+
     King(BoardVector position, Color color, std::string textureUrl);
 
     std::vector<BoardVector> possibleMoves(const std::vector<ChessPiece *> &pieces) override;

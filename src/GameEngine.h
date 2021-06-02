@@ -7,12 +7,8 @@
 
 
 class GameEngine {
-private:
-
 public:
     static void start();
-
 };
-
 
 #endif //SIMPLE_CHESS_GAMEENGINE_H

@@ -11,7 +11,6 @@
 
 class Board {
 private:
-    sf::Texture boardTexture;
     sf::Texture darkSquare;
     sf::Texture darkSquarePossible;
     sf::Texture lightSquare;
@@ -19,25 +18,25 @@ private:
     std::vector<sf::Sprite> boardTextures;
     sf::Sprite sBoard;
     std::vector<ChessPiece *> pieces;
-    Color squareColors[9][9];
     std::string gamePosition;
+
 public:
     const std::string &getGamePosition() const;
 
-public:
     const std::vector<sf::Sprite> &getBoardTextures() const;
 
     std::vector<ChessPiece *> &getPieces();
-
-    const sf::Sprite &getSBoard() const;
 
     Board();
 
     void generatePieces();
 
     void generateBoard();
-    void generateBoard(const std::vector<BoardVector>& possible);
+
+    void generateBoard(const std::vector<BoardVector> &possible);
+
     bool isCheck(Color col);
+
     bool makeMove(ChessPiece *piece, BoardVector to);
 
 

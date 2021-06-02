@@ -73,10 +73,8 @@ std::vector<BoardVector> King::attackingMoves(const std::vector<ChessPiece *> &p
                     if (pieces[j]->getColor() == color) canMove = false;
                 }
             }
-
             for (int j = 0; j < pieces.size(); j++)
                 if (pieces[j]->getColor() != color && !pieces[j]->amIKing()) {
-                    //std::cout << "Running ...\n";
                     std::vector<BoardVector> attacking = pieces[j]->attackingMoves(pieces);
                     for (int k = 0; k < attacking.size(); k++) {
                         if (attacking[k] == possibilties[i])

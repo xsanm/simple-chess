@@ -12,8 +12,6 @@ Bishop::Bishop(BoardVector position, Color color, std::string textureUrl) : Ches
 
 }
 
-
-
 std::vector<BoardVector> Bishop::possibleMoves(const std::vector<ChessPiece *> &pieces) {
     std::vector<BoardVector> result = Bishop::attackingMoves(pieces);
     result.push_back(this->position);

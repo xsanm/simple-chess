@@ -3,7 +3,6 @@
 //
 
 #include <string>
-#include <iostream>
 #include "BoardVector.h"
 
 BoardVector::BoardVector(char x, int y) {
@@ -36,7 +35,6 @@ bool BoardVector::isOnBoardd() {
 
 std::string BoardVector::toString() const {
     std::string res = "";
-    //std::cout << x << ' ' << y << '\n';
     res += char(x + 'a' - 1);
     res += char(y + '0');
     return res;

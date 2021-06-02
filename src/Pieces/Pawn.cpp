@@ -16,7 +16,6 @@ Pawn::Pawn(BoardVector position1, Color color1, std::string textureUrl1) : Chess
 std::vector<BoardVector> Pawn::possibleMoves(const std::vector<ChessPiece *> &pieces) {
     std::vector<BoardVector> result = Pawn::attackingMoves(pieces);
     result.push_back(this->position);
-    //std::cout << "Hello ";
     int y = position.getY();
     int y2 = position.getY();
     int x = position.getX();
@@ -34,11 +33,9 @@ std::vector<BoardVector> Pawn::possibleMoves(const std::vector<ChessPiece *> &pi
         }
     }
     if (possibleForward) {
-        //std::cout << x << ' ' <<  y << std::endl;
         result.push_back(BoardVector(x, y));
     }
     if (possibleDoubleForward) {
-        //std::cout << x << ' ' <<  y << std::endl;
         result.push_back(BoardVector(x, y2));
     }
     return result;
@@ -46,8 +43,6 @@ std::vector<BoardVector> Pawn::possibleMoves(const std::vector<ChessPiece *> &pi
 
 void Pawn::move(BoardVector position) {
 
-    //std::cout << this->position.getX() << " " << this->position.getY() << '\n';
-    //std::cout << position.getX() << " " << position.getY() << '\n';
     if ((!(position == this->position)) && isFirst) {
         isFirst = false;
     }
